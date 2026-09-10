@@ -21,7 +21,7 @@
   <header class="dash-header" id="dashHeader">
     <div class="dash-header-left">
       <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
-      <a href="index.html" class="dash-logo"><img src="assets/images/home/nav-logo.png" alt="STACKLY" class="dash-logo-img"></a>
+      <a href="index.html" class="dash-logo"><img src="assets/images/home/nav-logo.webp" alt="STACKLY" class="dash-logo-img"></a>
       <div class="header-title-block">
         <div class="header-breadcrumb" id="headerBreadcrumb">Admin Command Center / <span>Overview</span></div>
         <h1 class="dash-page-title" id="pageTitle">Overview</h1>
@@ -123,7 +123,7 @@
     <section class="dash-view active" id="view-overview">
       <div class="view-header luxury">
         <div><h2>Administrator Overview</h2><p class="view-subtitle">Platform-wide governance, users, deployments, and system health</p></div>
-        <div class="header-actions"><button class="btn-ghost" id="refreshOverview">Refresh</button><button class="btn-primary">Export Report</button></div>
+        <div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-ghost" id="refreshOverview">Refresh</button><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">Export Report</button></div>
       </div>
       <div class="kpi-grid premium">
         <div class="kpi-card" data-delay="0">
@@ -179,7 +179,7 @@
 
     <!-- USERS VIEW -->
     <section class="dash-view" id="view-users">
-      <div class="view-header luxury"><div><h2>User Management</h2><p class="view-subtitle">Manage operators, administrators, and access permissions</p></div><div class="header-actions"><button class="btn-primary">+ Add User</button></div></div>
+      <div class="view-header luxury"><div><h2>User Management</h2><p class="view-subtitle">Manage operators, administrators, and access permissions</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">+ Add User</button></div></div>
       <div class="user-summary-row">
         <div class="user-summary-card"><span class="user-summary-value" id="userTotal">248</span><span class="user-summary-label">Total Users</span></div>
         <div class="user-summary-card"><span class="user-summary-value" id="userOperators">186</span><span class="user-summary-label">Operators</span></div>
@@ -199,7 +199,7 @@
 
     <!-- DEPLOYMENTS VIEW -->
     <section class="dash-view" id="view-deployments">
-      <div class="view-header luxury"><div><h2>Deployments &amp; Sites</h2><p class="view-subtitle">Global facility status and geographic distribution</p></div><div class="header-actions"><button class="btn-primary">+ Add Site</button></div></div>
+      <div class="view-header luxury"><div><h2>Deployments &amp; Sites</h2><p class="view-subtitle">Global facility status and geographic distribution</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">+ Add Site</button></div></div>
       <div class="deploy-summary-row">
         <div class="deploy-summary-card"><span class="deploy-summary-value">12</span><span class="deploy-summary-label">Active Sites</span></div>
         <div class="deploy-summary-card"><span class="deploy-summary-value">4</span><span class="deploy-summary-label">Regions</span></div>
@@ -218,7 +218,7 @@
 
     <!-- FLEET VIEW -->
     <section class="dash-view" id="view-fleet">
-      <div class="view-header luxury"><div><h2>Robot Fleet</h2><p class="view-subtitle">Fleet-wide monitoring, models, and performance</p></div><div class="header-actions"><button class="btn-ghost">Schedule Update</button></div></div>
+      <div class="view-header luxury"><div><h2>Robot Fleet</h2><p class="view-subtitle">Fleet-wide monitoring, models, and performance</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-ghost">Schedule Update</button></div></div>
       <div class="fleet-summary-row">
         <div class="fleet-summary-card"><span class="fleet-summary-value">84</span><span class="fleet-summary-label">Total Units</span></div>
         <div class="fleet-summary-card"><span class="fleet-summary-value">78</span><span class="fleet-summary-label">Online</span></div>
@@ -237,7 +237,7 @@
 
     <!-- SECURITY VIEW -->
     <section class="dash-view" id="view-security">
-      <div class="view-header luxury"><div><h2>Security &amp; Access</h2><p class="view-subtitle">Authentication events, permissions, and policy compliance</p></div><div class="header-actions"><button class="btn-primary">Manage Policies</button></div></div>
+      <div class="view-header luxury"><div><h2>Security &amp; Access</h2><p class="view-subtitle">Authentication events, permissions, and policy compliance</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">Manage Policies</button></div></div>
       <div class="security-summary-row">
         <div class="security-summary-card"><span class="security-summary-value">18</span><span class="security-summary-label">Failed Logins</span></div>
         <div class="security-summary-card"><span class="security-summary-value">2</span><span class="security-summary-label">Locked Accounts</span></div>
@@ -256,7 +256,7 @@
 
     <!-- BILLING VIEW -->
     <section class="dash-view" id="view-billing">
-      <div class="view-header luxury"><div><h2>Billing &amp; License</h2><p class="view-subtitle">Subscription status, usage, and invoicing</p></div><div class="header-actions"><button class="btn-primary">Download Invoice</button></div></div>
+      <div class="view-header luxury"><div><h2>Billing &amp; License</h2><p class="view-subtitle">Subscription status, usage, and invoicing</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">Download Invoice</button></div></div>
       <div class="billing-summary-row">
         <div class="billing-summary-card"><span class="billing-summary-label">Plan</span><span class="billing-summary-value">Enterprise</span></div>
         <div class="billing-summary-card"><span class="billing-summary-label">Monthly Bill</span><span class="billing-summary-value">$24,500</span></div>
@@ -272,12 +272,12 @@
 
     <!-- AUDIT LOGS VIEW -->
     <section class="dash-view" id="view-audit">
-      <div class="view-header luxury"><div><h2>Audit Logs</h2><p class="view-subtitle">Administrative actions and system events</p></div><div class="header-actions"><button class="btn-ghost">Filter Logs</button></div></div>
+      <div class="view-header luxury"><div><h2>Audit Logs</h2><p class="view-subtitle">Administrative actions and system events</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-ghost">Filter Logs</button></div></div>
       <div class="audit-filter-bar">
-        <button class="filter-chip active" data-filter="all">All</button>
-        <button class="filter-chip" data-filter="user">User</button>
-        <button class="filter-chip" data-filter="security">Security</button>
-        <button class="filter-chip" data-filter="system">System</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip active" data-filter="all">All</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip" data-filter="user">User</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip" data-filter="security">Security</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip" data-filter="system">System</button>
       </div>
       <div class="chart-row chart-row-2">
         <div class="chart-card premium"><div class="chart-card-header"><h3>Events by Category</h3></div><div class="chart-container"><div id="chartEventsCategory"></div></div></div>
@@ -297,7 +297,7 @@
             <label class="field"><span class="field-label">Full Name</span><input type="text" id="profileFullName" class="field-input" value=""></label>
             <label class="field"><span class="field-label">Email</span><input type="email" id="profileEmail" class="field-input" value=""></label>
             <label class="field"><span class="field-label">Role</span><input type="text" id="profileRoleInput" class="field-input" value="" disabled></label>
-            <button type="submit" class="btn-save">Save Changes</button>
+            <button onclick="event.preventDefault();window.location.href='404.html'" type="submit" class="btn-save">Save Changes</button>
           </form>
         </div>
         <div class="profile-card"><h3>Activity Calendar</h3><div class="activity-heatmap" id="activityHeatmap"></div></div>
@@ -308,7 +308,7 @@
           <div class="toggle-row"><span>Audit Digest</span><label class="toggle-switch"><input type="checkbox" id="toggleAudit"><span class="toggle-slider"></span></label></div>
         </div></div>
         <div class="profile-card"><h3>Security</h3><div class="security-list">
-          <div class="security-item"><span>Two-Factor Auth</span><button class="btn-ghost small">Enable</button></div>
+          <div class="security-item"><span>Two-Factor Auth</span><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-ghost small">Enable</button></div>
           <div class="security-item"><span>Active Sessions</span><span class="security-value">2 devices</span></div>
           <div class="security-item"><span>Last Login</span><span class="security-value" id="lastLoginTime">Today, 08:42</span></div>
         </div></div>

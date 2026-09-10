@@ -12,7 +12,7 @@
   padding: 180px 0 120px;
   background:
     linear-gradient(90deg, #111318 0%, rgba(17, 19, 24, 0.9) 50%, rgba(17, 19, 24, 0) 100%),
-    url('../assets/images/service/service-hero.jpg');
+    url('../assets/images/service/service-hero.webp');
   background-size: cover;
   background-position: center;
 }

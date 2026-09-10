@@ -67,7 +67,7 @@ body {
   background-image:
     linear-gradient(90deg, #131313 0%, rgba(19, 19, 19, 0) 50%, #131313 100%),
     linear-gradient(0deg, #131313 0%, rgba(19, 19, 19, 0.8) 50%, rgba(19, 19, 19, 0) 100%),
-    url('../assets/images/about/about-hero.jpg');
+    url('../assets/images/about/about-hero.webp');
   background-size: cover;
   background-position: center;
   text-align: center;

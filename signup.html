@@ -223,6 +223,50 @@
     color: var(--white);
   }
 
+  .brand-logo {
+    display: inline-flex;
+    margin-bottom: 16px;
+  }
+
+  .brand-logo img {
+    height: 36px;
+    width: auto;
+    filter: brightness(0) saturate(100%) invert(1);
+  }
+
+  .go-home {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: rgba(10, 17, 26, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--slate);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .go-home svg {
+    color: var(--cyan);
+  }
+
+  .go-home:hover {
+    border-color: var(--cyan);
+    color: var(--white);
+    background: rgba(92, 225, 230, 0.08);
+  }
+
   .heading {
     font-family: var(--sans);
     font-weight: 700;
@@ -604,10 +648,14 @@
 </style>
 </head>
 <body>
+  <a href="index.html" class="go-home" aria-label="Go Home">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/></svg>
+    Go Home
+  </a>
   <main class="auth">
 
     <div class="auth-media">
-      <img src="assets/images/auth/login-signup-img.jpg" alt="STACKLY android operator profile">
+      <img src="assets/images/auth/login-signup-img.webp" alt="STACKLY android operator profile">
       <div class="media-overlay" aria-hidden="true"></div>
       <div class="embers" aria-hidden="true">
         <span class="ember"></span>
@@ -641,10 +689,9 @@
     <div class="auth-panel">
       <div class="auth-card">
         <div class="brand">
-          <svg class="brand-mark" viewBox="0 0 32 32" fill="#5CE1E6" aria-hidden="true">
-            <path d="M7 7h14v4H11v5h10v9H7v-4h10v-5H7z"/>
-          </svg>
-          <h1 class="brand-wordmark">Stackly</h1>
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/images/home/nav-logo.webp" alt="STACKLY">
+          </a>
         </div>
 
         <h2 class="heading">Establish Access</h2>

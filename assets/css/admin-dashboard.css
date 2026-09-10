@@ -381,12 +381,21 @@ body {
   .view-header h2 { font-size: 22px; }
 }
 @media (max-width: 480px) {
+  .dash-header { padding: 0 12px; }
+  #searchBtn,
+  #fullscreenBtn {
+    display: none;
+  }
+  .user-name-header { display: none; }
+  .dash-header-right { padding: 3px; gap: 2px; flex-shrink: 0; }
+  .user-avatar-btn { padding: 3px 8px 3px 3px; gap: 6px; }
   .dash-main { padding: 12px; padding-bottom: 80px; }
   .kpi-card, .chart-card { padding: 18px; }
   .chart-container { min-height: 220px; }
 }
 @media (max-width: 360px) {
   .dash-header { height: 60px; padding: 0 10px; }
+  .dash-header-left { gap: 10px; }
   :root { --header-h: 60px; }
   .dash-main { padding: 10px; padding-bottom: 74px; }
   .mobile-bottom-nav { height: 56px; padding: 0 6px; }
@@ -394,7 +403,16 @@ body {
   .mobile-nav-link svg { width: 18px; height: 18px; }
   .dash-page-title { font-size: 14px; }
   .header-breadcrumb { display: none; }
-  .dash-logo-img { height: 28px; }
+  .dash-logo-img { height: 26px; }
+  .hamburger-btn { width: 36px; height: 36px; }
+  .hamburger-btn span { width: 16px; }
+  .header-icon-btn,
+  .notif-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .avatar-initial { width: 30px; height: 30px; }
+  .user-avatar-btn { gap: 4px; padding: 3px 7px 3px 3px; }
   .kpi-value { font-size: 22px; }
 }
 

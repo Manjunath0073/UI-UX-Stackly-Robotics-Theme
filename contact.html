@@ -17,10 +17,13 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <img src="assets/images/home/nav-logo.png" alt="STACKLY">
+        <img src="assets/images/home/nav-logo.webp" alt="STACKLY">
       </a>
 
       <nav class="main-nav" id="mainNav">
+        <div class="main-nav-head">
+          <span class="main-nav-label">Navigation</span>
+        </div>
         <ul class="nav-list">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
@@ -30,6 +33,10 @@
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
+        <div class="main-nav-foot">
+          <a href="login.html" class="btn nav-login-btn">Login</a>
+          <span class="nav-status"><span class="nav-status-dot"></span>Systems Online</span>
+        </div>
       </nav>
 
       <a href="login.html" class="btn header-cta">Login</a>
@@ -47,7 +54,7 @@
     <!-- Hero -->
     <section class="ct-hero">
       <div class="ct-hero-bg" aria-hidden="true">
-        <img src="assets/images/contact/hero-img.jpg" alt="">
+        <img src="assets/images/contact/hero-img.webp" alt="">
       </div>
       <div class="container">
         <div class="ct-hero-card">
@@ -58,8 +65,8 @@
           <h1 class="ct-hero-title">Let's Build the <span class="ct-accent">Future</span> Together</h1>
           <p class="ct-hero-text">Have a robotics challenge or automation idea? Our experts are ready to help you design, develop, and deploy the right solution.</p>
           <div class="ct-hero-actions">
-            <a href="#form" class="ct-btn ct-btn-primary">Start a Conversation &rarr;</a>
-            <a href="#form" class="ct-btn ct-btn-ghost">Explore Solutions &#8857;</a>
+            <a href="404.html" class="ct-btn ct-btn-primary">Start a Conversation &rarr;</a>
+            <a href="404.html" class="ct-btn ct-btn-ghost">Explore Solutions &#8857;</a>
           </div>
         </div>
       </div>
@@ -133,13 +140,14 @@
               </div>
               <div class="ct-field">
                 <label for="phone"><span class="ct-field-sym" aria-hidden="true">[#]</span> Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required inputmode="numeric" maxlength="15">
               </div>
               <div class="ct-field full">
                 <label for="message"><span class="ct-field-sym" aria-hidden="true">[?]</span> Project Message</label>
                 <textarea id="message" name="message" placeholder="Describe your automation requirements…" required></textarea>
               </div>
               <button type="submit" class="ct-submit">Submit Inquiry</button>
+              <div class="ct-form-success" id="formSuccess" role="status"></div>
             </form>
           </div>
         </div>
@@ -310,35 +318,35 @@
         <div class="ct-innov-grid">
           <article class="ct-innov-card">
             <div class="ct-innov-media">
-              <img src="assets/images/home/home-insight-1.jpg" alt="Automotive robotics innovation">
+              <img src="assets/images/home/home-insight-1.webp" alt="Automotive robotics innovation">
             </div>
             <div class="ct-innov-body">
               <span class="ct-innov-cat">Automotive</span>
               <h3 class="ct-innov-title">Line-Side Assembly Automation</h3>
               <p class="ct-innov-text">Robotic cells that keep automotive lines moving at peak throughput.</p>
-              <a href="#" class="ct-innov-link">Learn more</a>
+              <a href="404.html" class="ct-innov-link">Learn more</a>
             </div>
           </article>
           <article class="ct-innov-card">
             <div class="ct-innov-media">
-              <img src="assets/images/home/home-insight-2.jpg" alt="Autonomous warehouse innovation">
+              <img src="assets/images/home/home-insight-2.webp" alt="Autonomous warehouse innovation">
             </div>
             <div class="ct-innov-body">
               <span class="ct-innov-cat">Autonomous Warehouse</span>
               <h3 class="ct-innov-title">Fleet-Optimized Fulfillment</h3>
               <p class="ct-innov-text">AMR fleets coordinated in real time to optimize storage and dispatch.</p>
-              <a href="#" class="ct-innov-link">Learn more</a>
+              <a href="404.html" class="ct-innov-link">Learn more</a>
             </div>
           </article>
           <article class="ct-innov-card">
             <div class="ct-innov-media">
-              <img src="assets/images/home/Home-future-vision.jpg" alt="Healthcare robotics innovation">
+              <img src="assets/images/home/Home-future-vision.webp" alt="Healthcare robotics innovation">
             </div>
             <div class="ct-innov-body">
               <span class="ct-innov-cat">Healthcare</span>
               <h3 class="ct-innov-title">Clinical Logistics Robots</h3>
               <p class="ct-innov-text">Automated transport that frees clinical staff to focus on care.</p>
-              <a href="#" class="ct-innov-link">Learn more</a>
+              <a href="404.html" class="ct-innov-link">Learn more</a>
             </div>
           </article>
         </div>
@@ -370,7 +378,7 @@
               <h2 class="ct-events-title">Stay at the Cutting Edge</h2>
               <p class="ct-events-sub">Join our upcoming sessions to learn about the latest advancements in robotics and automation.</p>
             </div>
-            <a href="#" class="ct-events-all">View All Events +</a>
+            <a href="404.html" class="ct-events-all">View All Events +</a>
           </div>
           <div class="ct-events-list">
             <article class="ct-event-card">
@@ -383,7 +391,7 @@
                 <h3 class="ct-event-title">The Future of Collaborative Robots in Assembly</h3>
                 <p class="ct-event-desc">Discover how next-gen cobots are redefining safety and efficiency in manufacturing environments.</p>
               </div>
-              <a href="#" class="ct-event-btn">Register Now</a>
+              <a href="404.html" class="ct-event-btn">Register Now</a>
             </article>
             <article class="ct-event-card">
               <div class="ct-event-date">
@@ -395,7 +403,7 @@
                 <h3 class="ct-event-title">Global Automation Summit 2024</h3>
                 <p class="ct-event-desc">Join us in Silicon Valley for an immersive showcase of our latest autonomous systems.</p>
               </div>
-              <a href="#" class="ct-event-link">Get Tickets <span aria-hidden="true">&rarr;</span></a>
+              <a href="404.html" class="ct-event-link">Get Tickets <span aria-hidden="true">&rarr;</span></a>
             </article>
           </div>
         </div>
@@ -409,8 +417,8 @@
           <h2 class="ct-final-title">Your Automation Journey Starts Here</h2>
           <p class="ct-final-sub">Connect with our robotics experts and turn your automation vision into reality.</p>
           <div class="ct-final-actions">
-            <a href="#form" class="ct-btn ct-btn-primary">Contact Our Experts &#9889;</a>
-            <a href="#form" class="ct-btn ct-btn-ghost">Request a Demo &#8857;</a>
+            <a href="404.html" class="ct-btn ct-btn-primary">Contact Our Experts &#9889;</a>
+            <a href="404.html" class="ct-btn ct-btn-ghost">Request a Demo &#8857;</a>
           </div>
         </div>
       </div>
@@ -424,37 +432,53 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo">
-            <img src="assets/images/home/nav-logo.png" alt="STACKLY">
+            <img src="assets/images/home/nav-logo.webp" alt="STACKLY">
           </a>
           <p class="footer-tagline">Engineering the future with intelligent robotics, artificial intelligence, and advanced automated systems.</p>
           <p class="footer-status">System Status: <span class="footer-status-value">Optimal</span></p>
+          <div class="footer-social">
+          <a href="404.html" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452z"/></svg>
+          </a>
+          <a href="404.html" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="404.html" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+          </a>
+          <a href="404.html" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
         </div>
 
         <div class="footer-col">
           <h4 class="footer-col-title">Platform</h4>
           <ul class="footer-links">
-            <li><a href="index.html#advanced-systems">Core AI Engine</a></li>
-            <li><a href="index.html#advanced-systems">Hardware Specs</a></li>
-            <li><a href="#">Developer API</a></li>
-            <li><a href="index.html#advanced-systems">Safety Standards</a></li>
+            <li><a href="404.html">Core AI Engine</a></li>
+            <li><a href="404.html">Hardware Specs</a></li>
+            <li><a href="404.html">Developer API</a></li>
+            <li><a href="404.html">Safety Standards</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4 class="footer-col-title">Company</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="index.html#research">Research Labs</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="404.html">About Us</a></li>
+            <li><a href="404.html">Research Labs</a></li>
+            <li><a href="404.html">Careers</a></li>
+            <li><a href="404.html">Contact</a></li>
           </ul>
         </div>
 
         <div class="footer-col footer-newsletter">
           <h4 class="footer-col-title">Robotics Insights</h4>
           <p class="footer-newsletter-text">Subscribe to our newsletter for the latest in AI and robotics engineering.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-            <input type="email" placeholder="ENTER EMAIL" required aria-label="Email address">
+          <form class="newsletter-form" id="footerNewsForm" novalidate>
+            <input type="email" id="footerNewsEmail" placeholder="ENTER EMAIL" required aria-label="Email address">
+            <button type="submit" class="newsletter-btn">Send</button>
+            <span class="newsletter-success" id="footerNewsSuccess" role="status"></span>
           </form>
         </div>
       </div>
@@ -462,9 +486,9 @@
       <div class="footer-bottom">
         <p class="footer-copyright">&copy; 2024 Robotix &mdash; Intelligence in Motion. All rights reserved.</p>
         <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Policy</a>
         </div>
       </div>
     </div>
@@ -501,29 +525,84 @@
       // Contact form validation
       var form = document.getElementById('contactForm');
       if (form) {
-        var fields = form.querySelectorAll('[required]');
+        var successMsg = document.getElementById('formSuccess');
+
+        function showSuccess(text) {
+          if (!successMsg) return;
+          successMsg.textContent = text;
+          successMsg.classList.add('show');
+          clearTimeout(showSuccess._t);
+          showSuccess._t = setTimeout(function () {
+            successMsg.classList.remove('show');
+          }, 3000);
+        }
+
+        // Phone accepts only numbers
+        var phoneField = document.getElementById('phone');
+        if (phoneField) {
+          phoneField.addEventListener('input', function () {
+            phoneField.value = phoneField.value.replace(/[^0-9]/g, '');
+          });
+        }
+
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           var valid = true;
           var firstError = null;
 
-          fields.forEach(function (field) {
-            var wrapper = field.closest('.ct-field');
-            var value = field.value.trim();
-            var ok = value.length > 0;
-
-            if (field.type === 'email' && ok) {
-              ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-            }
-
-            if (!ok) {
-              valid = false;
-              if (wrapper) wrapper.classList.add('has-error');
-              if (!firstError) firstError = field;
-            } else if (wrapper) {
-              wrapper.classList.remove('has-error');
-            }
+          form.querySelectorAll('.ct-field').forEach(function (wrapper) {
+            wrapper.classList.remove('has-error');
           });
+
+          function fail(field, wrapper) {
+            valid = false;
+            if (wrapper) wrapper.classList.add('has-error');
+            if (!firstError) firstError = field;
+          }
+
+          var fullName = form.querySelector('#fullName');
+          var company = form.querySelector('#company');
+          var email = form.querySelector('#email');
+          var phone = form.querySelector('#phone');
+          var message = form.querySelector('#message');
+
+          // Full Name - required, alphabets only
+          var fnVal = fullName ? fullName.value.trim() : '';
+          if (!fnVal) {
+            fail(fullName, fullName ? fullName.closest('.ct-field') : null);
+          } else if (!/^[A-Za-z\s]+$/.test(fnVal)) {
+            fail(fullName, fullName.closest('.ct-field'));
+          }
+
+          // Company - optional, alphabets only if filled
+          var coVal = company ? company.value.trim() : '';
+          if (coVal && !/^[A-Za-z\s]+$/.test(coVal)) {
+            fail(company, company.closest('.ct-field'));
+          }
+
+          // Email - required, valid format
+          var emVal = email ? email.value.trim() : '';
+          if (!emVal) {
+            fail(email, email ? email.closest('.ct-field') : null);
+          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emVal)) {
+            fail(email, email.closest('.ct-field'));
+          }
+
+          // Phone - required, numbers only
+          var phVal = phone ? phone.value.trim() : '';
+          if (!phVal) {
+            fail(phone, phone ? phone.closest('.ct-field') : null);
+          } else if (!/^[0-9]+$/.test(phVal)) {
+            fail(phone, phone.closest('.ct-field'));
+          }
+
+          // Message - required, minimum 10 characters
+          var msVal = message ? message.value.trim() : '';
+          if (!msVal) {
+            fail(message, message ? message.closest('.ct-field') : null);
+          } else if (msVal.length < 10) {
+            fail(message, message.closest('.ct-field'));
+          }
 
           if (!valid) {
             if (firstError) firstError.focus();
@@ -537,11 +616,11 @@
             btn.disabled = false;
             btn.textContent = 'Submit Inquiry';
             form.reset();
-            alert('Message sent. Our team will be in touch shortly.');
+            showSuccess('Message sent. Our team will be in touch shortly.');
           }, 1200);
         });
 
-        fields.forEach(function (field) {
+        form.querySelectorAll('input, textarea').forEach(function (field) {
           field.addEventListener('input', function () {
             var wrapper = field.closest('.ct-field');
             if (wrapper) wrapper.classList.remove('has-error');

@@ -36,7 +36,7 @@
 
   document.getElementById('logoutBtn').addEventListener('click', function () {
     localStorage.removeItem(USER_KEY);
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
   });
 
   document.getElementById('profileForm').addEventListener('submit', function (e) {

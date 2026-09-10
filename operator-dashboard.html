@@ -21,7 +21,7 @@
   <header class="dash-header" id="dashHeader">
     <div class="dash-header-left">
       <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
-      <a href="index.html" class="dash-logo"><img src="assets/images/home/nav-logo.png" alt="STACKLY" class="dash-logo-img"></a>
+      <a href="index.html" class="dash-logo"><img src="assets/images/home/nav-logo.webp" alt="STACKLY" class="dash-logo-img"></a>
       <div class="header-title-block">
         <div class="header-breadcrumb" id="headerBreadcrumb">Command Center / <span>Overview</span></div>
         <h1 class="dash-page-title" id="pageTitle">Overview</h1>
@@ -121,7 +121,7 @@
     <section class="dash-view active" id="view-overview">
       <div class="view-header luxury">
         <div><h2>Command Overview</h2><p class="view-subtitle">Live telemetry across all robotic systems and operations</p></div>
-        <div class="header-actions"><button class="btn-ghost" id="refreshOverview">Refresh</button><button class="btn-primary">Export Snapshot</button></div>
+        <div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-ghost" id="refreshOverview">Refresh</button><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">Export Snapshot</button></div>
       </div>
       <div class="kpi-grid premium">
         <div class="kpi-card" data-delay="0">
@@ -211,7 +211,7 @@
 
     <!-- EQUIPMENT VIEW -->
     <section class="dash-view" id="view-equipment">
-      <div class="view-header luxury"><div><h2>Asset / Equipment Status</h2><p class="view-subtitle">Equipment health, availability, and maintenance</p></div><div class="header-actions"><button class="btn-ghost">Schedule Maintenance</button></div></div>
+      <div class="view-header luxury"><div><h2>Asset / Equipment Status</h2><p class="view-subtitle">Equipment health, availability, and maintenance</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-ghost">Schedule Maintenance</button></div></div>
       <div class="equip-summary-row">
         <div class="equip-summary-card"><span class="equip-summary-value" id="equipOnline">18</span><span class="equip-summary-label">Online</span></div>
         <div class="equip-summary-card"><span class="equip-summary-value" id="equipMaint">4</span><span class="equip-summary-label">Maintenance</span></div>
@@ -232,7 +232,7 @@
 
     <!-- ALERTS VIEW -->
     <section class="dash-view" id="view-alerts">
-      <div class="view-header luxury"><div><h2>Alerts &amp; Incidents</h2><p class="view-subtitle">Severity breakdown and incident management</p></div><div class="header-actions"><button class="btn-primary">Create Incident</button></div></div>
+      <div class="view-header luxury"><div><h2>Alerts &amp; Incidents</h2><p class="view-subtitle">Severity breakdown and incident management</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">Create Incident</button></div></div>
       <div class="alert-summary-cards">
         <div class="alert-summary-card critical"><span class="alert-summary-value" id="alertCriticalCount">7</span><span class="alert-summary-label">Critical</span></div>
         <div class="alert-summary-card warning"><span class="alert-summary-value" id="alertWarningCount">12</span><span class="alert-summary-label">Warning</span></div>
@@ -248,17 +248,17 @@
         <div class="chart-card premium"><div class="chart-card-header"><h3>Resolution Time</h3></div><div class="chart-container"><div id="chartResolution"></div></div></div>
       </div>
       <div class="alerts-filter-bar">
-        <button class="filter-chip active" data-filter="all">All</button>
-        <button class="filter-chip" data-filter="critical">Critical</button>
-        <button class="filter-chip" data-filter="warning">Warning</button>
-        <button class="filter-chip" data-filter="info">Info</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip active" data-filter="all">All</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip" data-filter="critical">Critical</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip" data-filter="warning">Warning</button>
+        <button onclick="event.preventDefault();window.location.href='404.html'" class="filter-chip" data-filter="info">Info</button>
       </div>
       <div class="alerts-list" id="alertsList"></div>
     </section>
 
     <!-- TASKS VIEW -->
     <section class="dash-view" id="view-tasks">
-      <div class="view-header luxury"><div><h2>Task Queue</h2><p class="view-subtitle">Priority distribution and Kanban workflow</p></div><div class="header-actions"><button class="btn-primary">+ New Task</button></div></div>
+      <div class="view-header luxury"><div><h2>Task Queue</h2><p class="view-subtitle">Priority distribution and Kanban workflow</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary">+ New Task</button></div></div>
       <div class="task-summary-row">
         <div class="task-summary-card"><span class="task-summary-value" id="taskTotalCount">42</span><span class="task-summary-label">Total Tasks</span></div>
         <div class="task-summary-card"><span class="task-summary-value" id="taskOverdueCount">3</span><span class="task-summary-label">Overdue</span></div>
@@ -282,7 +282,7 @@
 
     <!-- REPORTS VIEW -->
     <section class="dash-view" id="view-reports">
-      <div class="view-header luxury"><div><h2>Performance Reports</h2><p class="view-subtitle">Analytics, trends, and exportable data</p></div><div class="header-actions"><button class="btn-primary" id="exportCsvBtn">Export CSV</button></div></div>
+      <div class="view-header luxury"><div><h2>Performance Reports</h2><p class="view-subtitle">Analytics, trends, and exportable data</p></div><div class="header-actions"><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-primary" id="exportCsvBtn">Export CSV</button></div></div>
       <div class="reports-toolbar">
         <div class="date-filter"><label>Date Range:</label><input type="date" value="2026-09-01" class="date-input"><span>to</span><input type="date" value="2026-09-09" class="date-input"></div>
         <div class="report-kpis">
@@ -314,7 +314,7 @@
             <label class="field"><span class="field-label">Full Name</span><input type="text" id="profileFullName" class="field-input" value=""></label>
             <label class="field"><span class="field-label">Email</span><input type="email" id="profileEmail" class="field-input" value=""></label>
             <label class="field"><span class="field-label">Role</span><input type="text" id="profileRoleInput" class="field-input" value="" disabled></label>
-            <button type="submit" class="btn-save">Save Changes</button>
+            <button onclick="event.preventDefault();window.location.href='404.html'" type="submit" class="btn-save">Save Changes</button>
           </form>
         </div>
         <div class="profile-card"><h3>Activity Calendar</h3><div class="activity-heatmap" id="activityHeatmap"></div></div>
@@ -325,7 +325,7 @@
           <div class="toggle-row"><span>Sound Effects</span><label class="toggle-switch"><input type="checkbox" id="toggleSound"><span class="toggle-slider"></span></label></div>
         </div></div>
         <div class="profile-card"><h3>Security</h3><div class="security-list">
-          <div class="security-item"><span>Two-Factor Auth</span><button class="btn-ghost small">Enable</button></div>
+          <div class="security-item"><span>Two-Factor Auth</span><button onclick="event.preventDefault();window.location.href='404.html'" class="btn-ghost small">Enable</button></div>
           <div class="security-item"><span>Active Sessions</span><span class="security-value">2 devices</span></div>
           <div class="security-item"><span>Last Login</span><span class="security-value" id="lastLoginTime">Today, 08:42</span></div>
         </div></div>

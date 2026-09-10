@@ -313,6 +313,26 @@
 .ct-submit:disabled {
   opacity: 0.7;
   cursor: default;
+  pointer-events: none;
+}
+
+.ct-form-success {
+  grid-column: 1 / -1;
+  justify-self: start;
+  display: none;
+  max-width: 100%;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background: rgba(94, 234, 212, 0.12);
+  border: 1px solid rgba(94, 234, 212, 0.45);
+  color: #5eead4;
+  font-family: var(--s2-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.ct-form-success.show {
+  display: block;
 }
 
 /* ---------- What Can We Help You Build? ---------- */
