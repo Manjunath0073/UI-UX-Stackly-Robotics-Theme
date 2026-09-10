@@ -29,7 +29,7 @@ body {
 
 /* Shared primitives */
 .s2-section {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .s2-label {
@@ -172,7 +172,7 @@ body {
 /* ---------- Hero ---------- */
 .s2-hero {
   position: relative;
-  padding: 150px 0 96px;
+  padding: 130px 0 72px;
   background: linear-gradient(180deg, var(--s2-bg-1) 0%, var(--s2-bg-2) 100%);
 }
 
@@ -670,7 +670,7 @@ body {
 
 /* ---------- Newsletter (CTA) ---------- */
 .nl-section {
-  padding: 120px 0;
+  padding: 88px 0;
   background: #151B2D;
 }
 
@@ -774,7 +774,7 @@ body {
 /* ---------- Next-Gen Product Hero ---------- */
 .ph-hero {
   position: relative;
-  padding: 176px 0 112px;
+  padding: 144px 0 88px;
   background: linear-gradient(90deg, #0C1324 0%, rgba(12, 19, 36, 0.9) 50%, rgba(12, 19, 36, 0) 100%);
   overflow: hidden;
 }
@@ -936,7 +936,7 @@ body {
 
 /* ---------- Hardware Ecosystem ---------- */
 .ph-eco {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .ph-eco-head {
@@ -999,7 +999,7 @@ body {
 
 /* ---------- Featured Hardware ---------- */
 .ph-featured {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .ph-featured-head {
@@ -1173,7 +1173,7 @@ body {
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .ph-featured {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .ph-featured-grid {
@@ -1185,11 +1185,11 @@ body {
   }
 
   .ph-eco {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .ph-hero {
-    padding: 150px 0 88px;
+    padding: 130px 0 64px;
   }
 
   .ph-hero-grid {
@@ -1220,7 +1220,7 @@ body {
 
 @media (max-width: 768px) {
   .s2-section {
-    padding: 72px 0;
+    padding: 44px 0;
   }
 
   .ph-hero {
@@ -1267,7 +1267,7 @@ body {
   }
 
   .nl-section {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .nl-title {
@@ -1299,7 +1299,7 @@ body {
   }
 
   .ph-eco {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .ph-eco-card {
@@ -1307,7 +1307,7 @@ body {
   }
 
   .ph-featured {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .ph-featured-grid {
@@ -1327,7 +1327,7 @@ body {
 
 @media (max-width: 480px) {
   .s2-section {
-    padding: 56px 0;
+    padding: 44px 0;
   }
 
   .s2-hero {
@@ -1499,7 +1499,7 @@ body {
   }
 
   .nl-section {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .nl-title {
@@ -1516,7 +1516,7 @@ body {
   }
 
   .ph-hero {
-    padding: 120px 0 64px;
+    padding: 96px 0 48px;
   }
 
   .ph-title {
@@ -1549,7 +1549,7 @@ body {
   }
 
   .ph-eco {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .ph-eco-head {
@@ -1575,7 +1575,7 @@ body {
   }
 
   .ph-featured {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .ph-featured-head {

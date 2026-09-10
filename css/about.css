@@ -27,7 +27,7 @@ body {
 }
 
 .about-section {
-  padding: 110px 0;
+  padding: 84px 0;
 }
 
 .about-label {
@@ -63,7 +63,7 @@ body {
 .about-hero {
   position: relative;
   overflow: hidden;
-  padding: 200px 0 140px;
+  padding: 160px 0 112px;
   background-image:
     linear-gradient(90deg, #131313 0%, rgba(19, 19, 19, 0) 50%, #131313 100%),
     linear-gradient(0deg, #131313 0%, rgba(19, 19, 19, 0.8) 50%, rgba(19, 19, 19, 0) 100%),
@@ -154,7 +154,7 @@ body {
 
 /* ---------- Section 02 - Story & Mission ---------- */
 .story {
-  padding: 120px 0;
+  padding: 88px 0;
   background: var(--about-navy);
   border-top: 1px solid var(--about-border);
 }
@@ -284,7 +284,7 @@ body {
 
 /* ---------- Section 03 - Leadership ---------- */
 .leadership {
-  padding: 120px 0;
+  padding: 88px 0;
   background: var(--about-navy);
   color: var(--about-white);
 }
@@ -374,7 +374,7 @@ body {
 
 /* ---------- Section 04 & 07 - Principles / Initiatives ---------- */
 .principles {
-  padding: 120px 0;
+  padding: 88px 0;
   background: var(--about-navy);
   border-top: 1px solid var(--about-border);
 }
@@ -421,7 +421,7 @@ body {
 
 /* ---------- Section 06 - Ethical Protocol ---------- */
 .ethics {
-  padding: 120px 0;
+  padding: 88px 0;
   background: #151823;
   border-top: 1px solid var(--about-border);
 }
@@ -454,7 +454,7 @@ body {
 
 /* ---------- Section 05 - Timeline ---------- */
 .timeline {
-  padding: 120px 0;
+  padding: 88px 0;
   background: var(--about-navy);
   border-top: 1px solid var(--about-border);
 }
@@ -546,7 +546,7 @@ body {
 
 /* ---------- Section 06 - Synergetic Network (Partners) ---------- */
 .partners {
-  padding: 120px 0;
+  padding: 88px 0;
   background: var(--about-navy);
   border-top: 1px solid var(--about-border);
 }
@@ -607,7 +607,7 @@ body {
 
 /* ---------- Section 08 - Facilities ---------- */
 .facilities {
-  padding: 120px 0;
+  padding: 88px 0;
   background: var(--about-navy-2);
   border-top: 1px solid var(--about-border);
 }
@@ -698,12 +698,8 @@ body {
 }
 
 @media (max-width: 768px) {
-  .about-section {
-    padding: 80px 0;
-  }
-
   .about-hero {
-    padding: 160px 0 100px;
+    padding: 140px 0 80px;
   }
 
   .leadership-grid,
@@ -734,12 +730,8 @@ body {
 }
 
 @media (max-width: 480px) {
-  .about-section {
-    padding: 64px 0;
-  }
-
   .about-hero {
-    padding: 140px 0 80px;
+    padding: 120px 0 64px;
   }
 
   .about-hero-inner {
@@ -761,7 +753,7 @@ body {
   }
 
   .story {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .story-title {
@@ -785,7 +777,7 @@ body {
   .timeline,
   .partners,
   .facilities {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .leader-caption {

@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
   min-height: 660px;
-  padding: 176px 0 120px;
+  padding: 144px 0 96px;
   background: linear-gradient(90deg, #0C1324 0%, rgba(12, 19, 36, 0.9) 50%, rgba(12, 19, 36, 0) 100%);
   overflow: hidden;
 }
@@ -140,7 +140,7 @@ body {
 /* ---------- Core Sectors ---------- */
 .in-sectors {
   background: #0C1324;
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .in-sectors-head {
@@ -237,7 +237,7 @@ body {
 /* ---------- Stats Band ---------- */
 .in-stats {
   background: #0d1424;
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .in-stats-row {
@@ -542,7 +542,7 @@ body {
   .in-hero {
     display: block;
     min-height: 0;
-    padding: 150px 0 72px;
+    padding: 128px 0 56px;
   }
 
   .in-hero-copy {
@@ -568,7 +568,7 @@ body {
   }
 
   .in-stats {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .in-stats-row {
@@ -603,7 +603,7 @@ body {
 
 @media (max-width: 768px) {
   .in-hero {
-    padding: 130px 0 56px;
+    padding: 112px 0 48px;
   }
 
   .in-eyebrow {
@@ -638,7 +638,7 @@ body {
   }
 
   .in-stats {
-    padding: 72px 0;
+    padding: 56px 0;
   }
 
   .in-stats-row {
@@ -662,7 +662,7 @@ body {
   }
 
   .in-sectors {
-    padding: 72px 0;
+    padding: 56px 0;
   }
 
   .in-sectors-ico {
@@ -687,7 +687,7 @@ body {
 
 @media (max-width: 480px) {
   .in-hero {
-    padding: 120px 0 64px;
+    padding: 96px 0 48px;
   }
 
   .in-hero-copy {
@@ -725,7 +725,7 @@ body {
   }
 
   .in-sectors {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .in-sectors-head {
@@ -764,7 +764,7 @@ body {
   }
 
   .in-stats {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .in-stats-row {

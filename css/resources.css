@@ -7,7 +7,7 @@
 .res-hero {
   position: relative;
   overflow: hidden;
-  padding: 200px 0 140px;
+  padding: 160px 0 112px;
   text-align: center;
   background: linear-gradient(180deg, var(--s2-bg-1) 0%, var(--s2-bg-2) 100%);
 }
@@ -939,7 +939,7 @@
 
 @media (max-width: 768px) {
   .res-hero {
-    padding: 160px 0 100px;
+    padding: 140px 0 80px;
   }
 
   .res-dev {
@@ -977,7 +977,7 @@
 
 @media (max-width: 480px) {
   .res-hero {
-    padding: 140px 0 80px;
+    padding: 120px 0 64px;
   }
 
   .res-hero-title {

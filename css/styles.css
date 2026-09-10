@@ -16,7 +16,7 @@
   --color-text-muted: #64748b;
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --container-max: 1280px;
-  --section-padding-y: 120px;
+  --section-padding-y: 88px;
   --radius: 8px;
   --radius-lg: 16px;
   --transition: 0.25s ease;
@@ -261,6 +261,25 @@ button {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+.site-header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00e5e5, #06b6d4, transparent);
+  background-size: 200% 100%;
+  opacity: 0.75;
+  pointer-events: none;
+  animation: headerShine 5s ease-in-out infinite;
+}
+
+@keyframes headerShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -271,6 +290,11 @@ button {
 .logo img {
   height: 48px;
   width: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
 }
 
 .nav-list {
@@ -292,8 +316,25 @@ button {
 }
 
 .header-cta {
+  position: relative;
+  overflow: hidden;
   background-color: #000000;
   color: #ffffff;
+}
+
+.header-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: left 0.5s ease;
+}
+
+.header-cta:hover::before {
+  left: 100%;
 }
 
 .header-cta:hover {
@@ -316,7 +357,7 @@ button {
 
 /* Hero */
 .hero {
-  padding: 180px 0 120px;
+  padding: 160px 0 96px;
   background: rgba(0, 35, 80, 0.2);
   position: relative;
   overflow: hidden;
@@ -421,7 +462,7 @@ button {
 
 /* Technology */
 .technology {
-  padding: 120px 0;
+  padding: 88px 0;
   background: rgba(0, 35, 80, 0.2);
   border-top: 1px solid var(--color-card-border);
   border-bottom: 1px solid var(--color-card-border);
@@ -628,7 +669,7 @@ button {
 /* Build Banner */
 .build-banner {
   position: relative;
-  padding: 160px 0;
+  padding: 120px 0;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -910,7 +951,7 @@ button {
 
 /* CTA */
 .cta {
-  padding: 140px 0;
+  padding: 104px 0;
   background: rgba(0, 35, 80, 0.2);
   text-align: center;
 }
@@ -1344,7 +1385,7 @@ button {
 
 /* CTA Banner */
 .cta-banner {
-  padding: 72px 0;
+  padding: 56px 0;
   background-color: rgba(0, 35, 80, 0.2);
 }
 
@@ -1396,7 +1437,7 @@ button {
 
 @media (max-width: 768px) {
   .cta-banner {
-    padding: 56px 0;
+    padding: 44px 0;
   }
 
   .cta-banner-inner {
@@ -1734,7 +1775,7 @@ html, body {
 
 /* Hero — mobile default single column */
 .hero {
-  padding: clamp(120px, 22vw, 180px) 0 clamp(60px, 10vw, 120px);
+  padding: clamp(96px, 18vw, 144px) 0 clamp(48px, 8vw, 96px);
 }
 
 .hero-inner {
@@ -1802,7 +1843,7 @@ html, body {
 
 /* Mission */
 .mission {
-  padding: clamp(64px, 10vw, 120px) 0;
+  padding: clamp(48px, 8vw, 88px) 0;
 }
 
 .mission-text {
@@ -1811,7 +1852,7 @@ html, body {
 
 /* Technology */
 .technology {
-  padding: clamp(64px, 10vw, 120px) 0;
+  padding: clamp(48px, 8vw, 88px) 0;
 }
 
 .technology-card {
@@ -1827,7 +1868,7 @@ html, body {
 .solutions,
 .testimonials,
 .faq {
-  padding: clamp(64px, 10vw, 120px) 0;
+  padding: clamp(48px, 8vw, 88px) 0;
 }
 
 .system-card,
@@ -1906,7 +1947,7 @@ html, body {
 
 /* CTA */
 .cta {
-  padding: clamp(80px, 12vw, 140px) 0;
+  padding: clamp(64px, 10vw, 104px) 0;
 }
 
 .cta-text {
@@ -1915,7 +1956,7 @@ html, body {
 
 /* CTA banner */
 .cta-banner {
-  padding: clamp(48px, 7vw, 72px) 0;
+  padding: clamp(40px, 6vw, 56px) 0;
 }
 
 .cta-banner-inner {
@@ -2268,11 +2309,27 @@ html, body {
   }
 
   .main-nav .nav-link {
+    position: relative;
     width: auto;
     padding: 0;
     font-size: 14px;
     background: transparent;
-    color: #000000;
+    color: #111827;
+    transition: color 0.25s ease;
+  }
+
+  .main-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #00e5e5, #06b6d4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .main-nav .nav-link::before {
@@ -2282,8 +2339,13 @@ html, body {
   .main-nav .nav-link:hover,
   .main-nav .nav-link.active {
     background: transparent;
-    color: #000000;
+    color: #00a3a3;
     padding-left: 0;
+  }
+
+  .main-nav .nav-link:hover::after,
+  .main-nav .nav-link.active::after {
+    transform: scaleX(1);
   }
 
   .main-nav-head,
