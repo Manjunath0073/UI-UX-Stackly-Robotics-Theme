@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY — Administrator Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin-dashboard.css">
+</head>
+<body>
+
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+    <div class="mesh-overlay"></div>
+  </div>
+
+  <header class="dash-header" id="dashHeader">
+    <div class="dash-header-left">
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
+      <a href="index.html" class="dash-logo"><img src="assets/images/home/nav-logo.png" alt="STACKLY" class="dash-logo-img"></a>
+      <div class="header-title-block">
+        <div class="header-breadcrumb" id="headerBreadcrumb">Admin Command Center / <span>Overview</span></div>
+        <h1 class="dash-page-title" id="pageTitle">Overview</h1>
+      </div>
+    </div>
+    <div class="dash-header-center">
+      <div class="live-ticker admin" id="liveTicker"><span class="ticker-dot"></span><span class="ticker-text" id="tickerText">Platform Optimal</span></div>
+      <div class="header-clock" id="headerClock">--:--:--</div>
+    </div>
+    <div class="dash-header-right">
+      <button class="header-icon-btn" id="searchBtn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
+      <button class="header-icon-btn" id="fullscreenBtn" aria-label="Fullscreen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
+      <button class="notif-btn" id="notifBtn" aria-label="Notifications">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-badge" id="notifBadge">5</span>
+      </button>
+      <div class="user-dropdown-wrap" id="userDropdownWrap">
+        <button class="user-avatar-btn" id="userAvatarBtn">
+          <span class="avatar-initial" id="avatarInitial">A</span>
+          <span class="user-name-header" id="userDisplayName">Administrator</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="dropdown-user-info">
+            <span class="avatar-initial avatar-lg" id="dropdownAvatar">A</span>
+            <div>
+              <div class="dropdown-user-name" id="dropdownName">Administrator</div>
+              <div class="dropdown-user-email" id="dropdownEmail">admin@stackly.com</div>
+              <span class="role-badge admin" id="dropdownRole">Administrator</span>
+            </div>
+          </div>
+          <hr class="dropdown-divider">
+          <button class="dropdown-item" id="navToProfile"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile &amp; Settings</button>
+          <button class="dropdown-item" id="logoutBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="sidebar-scroll">
+      <nav class="sidebar-nav" id="sidebarNav">
+        <a href="#overview" class="sidebar-link active" data-view="overview" data-title="Overview">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-label">Overview</span>
+        </a>
+        <a href="#users" class="sidebar-link" data-view="users" data-title="User Management">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="sidebar-label">Users</span>
+        </a>
+        <a href="#deployments" class="sidebar-link" data-view="deployments" data-title="Deployments &amp; Sites">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="sidebar-label">Deployments</span>
+        </a>
+        <a href="#fleet" class="sidebar-link" data-view="fleet" data-title="Robot Fleet">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+          <span class="sidebar-label">Robot Fleet</span>
+        </a>
+        <a href="#security" class="sidebar-link" data-view="security" data-title="Security &amp; Access">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <span class="sidebar-label">Security</span>
+        </a>
+        <a href="#billing" class="sidebar-link" data-view="billing" data-title="Billing &amp; License">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="sidebar-label">Billing</span>
+        </a>
+        <a href="#audit" class="sidebar-link" data-view="audit" data-title="Audit Logs">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
+          <span class="sidebar-label">Audit Logs</span>
+        </a>
+        <a href="#profile" class="sidebar-link" data-view="profile" data-title="Profile / Settings">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <span class="sidebar-label">Profile</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="system-mini-card">
+          <div class="system-mini-header"><span class="system-mini-dot online"></span><span>Platform Health</span></div>
+          <div class="system-mini-value" id="systemHealthMini">99.2%</div>
+          <div class="system-mini-bar"><div style="width:99.2%"></div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <a href="#overview" class="mobile-nav-link active" data-view="overview"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Overview</span></a>
+    <a href="#users" class="mobile-nav-link" data-view="users"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Users</span></a>
+    <a href="#deployments" class="mobile-nav-link" data-view="deployments"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg><span>Sites</span></a>
+    <a href="#security" class="mobile-nav-link" data-view="security"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Security</span></a>
+    <button class="mobile-nav-link" id="mobileMoreBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg><span>More</span></button>
+  </nav>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <main class="dash-main" id="dashMain">
+
+    <!-- OVERVIEW VIEW -->
+    <section class="dash-view active" id="view-overview">
+      <div class="view-header luxury">
+        <div><h2>Administrator Overview</h2><p class="view-subtitle">Platform-wide governance, users, deployments, and system health</p></div>
+        <div class="header-actions"><button class="btn-ghost" id="refreshOverview">Refresh</button><button class="btn-primary">Export Report</button></div>
+      </div>
+      <div class="kpi-grid premium">
+        <div class="kpi-card" data-delay="0">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-primary"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="kpi-spark" id="sparkUsers"></span></div>
+          <div class="kpi-body"><span class="kpi-label">Total Users</span><span class="kpi-value count-up" data-target="248">0</span></div>
+          <div class="kpi-bottom"><span class="kpi-trend up">+18</span><span class="kpi-trend-label">this month</span></div>
+        </div>
+        <div class="kpi-card" data-delay="1">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-cyan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><span class="kpi-spark" id="sparkRobots"></span></div>
+          <div class="kpi-body"><span class="kpi-label">Robot Fleet</span><span class="kpi-value count-up" data-target="84">0</span></div>
+          <div class="kpi-bottom"><span class="kpi-trend up">+6</span><span class="kpi-trend-label">deployed</span></div>
+        </div>
+        <div class="kpi-card" data-delay="2">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-success"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div><span class="kpi-spark" id="sparkSites"></span></div>
+          <div class="kpi-body"><span class="kpi-label">Active Sites</span><span class="kpi-value count-up" data-target="12">0</span></div>
+          <div class="kpi-bottom"><span class="kpi-trend up">+2</span><span class="kpi-trend-label">new regions</span></div>
+        </div>
+        <div class="kpi-card" data-delay="3">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-warning"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="kpi-spark" id="sparkSavings"></span></div>
+          <div class="kpi-body"><span class="kpi-label">Cost Savings</span><span class="kpi-value"><span class="count-up" data-target="2" data-prefix="$" data-suffix=".4M">0</span></span></div>
+          <div class="kpi-bottom"><span class="kpi-trend up">+14%</span><span class="kpi-trend-label">vs last quarter</span></div>
+        </div>
+      </div>
+
+      <div class="overview-metrics-row">
+        <div class="metric-panel">
+          <div class="metric-panel-header"><span class="metric-panel-title">Platform Status</span><span class="metric-panel-status online">Operational</span></div>
+          <div class="service-grid" id="serviceGrid"></div>
+        </div>
+        <div class="metric-panel">
+          <div class="metric-panel-header"><span class="metric-panel-title">Top Sites</span><span class="metric-panel-count">by throughput</span></div>
+          <div class="sites-list" id="sitesList"></div>
+        </div>
+        <div class="metric-panel">
+          <div class="metric-panel-header"><span class="metric-panel-title">License Usage</span><span class="metric-panel-status normal">74%</span></div>
+          <div class="license-bars" id="licenseBars"></div>
+        </div>
+      </div>
+
+      <div class="chart-row chart-row-2">
+        <div class="chart-card chart-card-wide premium">
+          <div class="chart-card-header"><div><h3>Platform Activity</h3><p class="chart-subtitle">Logins, deployments, and operations across all sites</p></div><span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
+          <div class="chart-container"><div id="chartPlatformActivity"></div></div>
+        </div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>User Roles Distribution</h3></div><div class="chart-container"><div id="chartRoles"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-3">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Fleet Growth</h3></div><div class="chart-container"><div id="chartFleetGrowth"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Monthly Spend</h3></div><div class="chart-container"><div id="chartMonthlySpend"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Recent Admin Actions</h3></div><div class="alerts-feed" id="adminActionsFeed"></div></div>
+      </div>
+    </section>
+
+    <!-- USERS VIEW -->
+    <section class="dash-view" id="view-users">
+      <div class="view-header luxury"><div><h2>User Management</h2><p class="view-subtitle">Manage operators, administrators, and access permissions</p></div><div class="header-actions"><button class="btn-primary">+ Add User</button></div></div>
+      <div class="user-summary-row">
+        <div class="user-summary-card"><span class="user-summary-value" id="userTotal">248</span><span class="user-summary-label">Total Users</span></div>
+        <div class="user-summary-card"><span class="user-summary-value" id="userOperators">186</span><span class="user-summary-label">Operators</span></div>
+        <div class="user-summary-card"><span class="user-summary-value" id="userAdmins">24</span><span class="user-summary-label">Administrators</span></div>
+        <div class="user-summary-card"><span class="user-summary-value" id="userInactive">12</span><span class="user-summary-label">Inactive</span></div>
+        <div class="user-summary-card"><span class="user-summary-value" id="userPending">26</span><span class="user-summary-label">Pending</span></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>User Growth</h3></div><div class="chart-container"><div id="chartUserGrowth"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Role Distribution</h3></div><div class="chart-container"><div id="chartUserRoles"></div></div></div>
+      </div>
+      <div class="chart-card premium">
+        <div class="chart-card-header"><h3>User Directory</h3></div>
+        <div class="data-table-wrap"><table class="data-table" id="usersTable"></table></div>
+      </div>
+    </section>
+
+    <!-- DEPLOYMENTS VIEW -->
+    <section class="dash-view" id="view-deployments">
+      <div class="view-header luxury"><div><h2>Deployments &amp; Sites</h2><p class="view-subtitle">Global facility status and geographic distribution</p></div><div class="header-actions"><button class="btn-primary">+ Add Site</button></div></div>
+      <div class="deploy-summary-row">
+        <div class="deploy-summary-card"><span class="deploy-summary-value">12</span><span class="deploy-summary-label">Active Sites</span></div>
+        <div class="deploy-summary-card"><span class="deploy-summary-value">4</span><span class="deploy-summary-label">Regions</span></div>
+        <div class="deploy-summary-card"><span class="deploy-summary-value">84</span><span class="deploy-summary-label">Robots Deployed</span></div>
+        <div class="deploy-summary-card"><span class="deploy-summary-value">3</span><span class="deploy-summary-label">Pending</span></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card chart-card-wide premium"><div class="chart-card-header"><h3>Global Deployment Map</h3></div><div class="chart-container"><div id="chartDeploymentMap"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Robots by Region</h3></div><div class="chart-container"><div id="chartRobotsByRegion"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Site Utilization</h3></div><div class="chart-container"><div id="chartSiteUtilization"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Deployment Timeline</h3></div><div class="chart-container"><div id="chartDeploymentTimeline"></div></div></div>
+      </div>
+    </section>
+
+    <!-- FLEET VIEW -->
+    <section class="dash-view" id="view-fleet">
+      <div class="view-header luxury"><div><h2>Robot Fleet</h2><p class="view-subtitle">Fleet-wide monitoring, models, and performance</p></div><div class="header-actions"><button class="btn-ghost">Schedule Update</button></div></div>
+      <div class="fleet-summary-row">
+        <div class="fleet-summary-card"><span class="fleet-summary-value">84</span><span class="fleet-summary-label">Total Units</span></div>
+        <div class="fleet-summary-card"><span class="fleet-summary-value">78</span><span class="fleet-summary-label">Online</span></div>
+        <div class="fleet-summary-card"><span class="fleet-summary-value">4</span><span class="fleet-summary-label">Models</span></div>
+        <div class="fleet-summary-card"><span class="fleet-summary-value">92%</span><span class="fleet-summary-label">Avg Uptime</span></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Fleet by Model</h3></div><div class="chart-container"><div id="chartFleetModels"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Firmware Versions</h3></div><div class="chart-container"><div id="chartFirmware"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Fleet Availability Trend</h3></div><div class="chart-container"><div id="chartFleetAvailability"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Units by Site</h3></div><div class="chart-container"><div id="chartUnitsBySite"></div></div></div>
+      </div>
+    </section>
+
+    <!-- SECURITY VIEW -->
+    <section class="dash-view" id="view-security">
+      <div class="view-header luxury"><div><h2>Security &amp; Access</h2><p class="view-subtitle">Authentication events, permissions, and policy compliance</p></div><div class="header-actions"><button class="btn-primary">Manage Policies</button></div></div>
+      <div class="security-summary-row">
+        <div class="security-summary-card"><span class="security-summary-value">18</span><span class="security-summary-label">Failed Logins</span></div>
+        <div class="security-summary-card"><span class="security-summary-value">2</span><span class="security-summary-label">Locked Accounts</span></div>
+        <div class="security-summary-card"><span class="security-summary-value">98%</span><span class="security-summary-label">2FA Adoption</span></div>
+        <div class="security-summary-card"><span class="security-summary-value">0</span><span class="security-summary-label">Critical Breaches</span></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Login Attempts</h3></div><div class="chart-container"><div id="chartLoginAttempts"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Access by Role</h3></div><div class="chart-container"><div id="chartAccessByRole"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Session Duration</h3></div><div class="chart-container"><div id="chartSessionDuration"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Policy Compliance</h3></div><div class="chart-container"><div id="chartPolicyCompliance"></div></div></div>
+      </div>
+    </section>
+
+    <!-- BILLING VIEW -->
+    <section class="dash-view" id="view-billing">
+      <div class="view-header luxury"><div><h2>Billing &amp; License</h2><p class="view-subtitle">Subscription status, usage, and invoicing</p></div><div class="header-actions"><button class="btn-primary">Download Invoice</button></div></div>
+      <div class="billing-summary-row">
+        <div class="billing-summary-card"><span class="billing-summary-label">Plan</span><span class="billing-summary-value">Enterprise</span></div>
+        <div class="billing-summary-card"><span class="billing-summary-label">Monthly Bill</span><span class="billing-summary-value">$24,500</span></div>
+        <div class="billing-summary-card"><span class="billing-summary-label">License Seats</span><span class="billing-summary-value">250 / 300</span></div>
+        <div class="billing-summary-card"><span class="billing-summary-label">Next Renewal</span><span class="billing-summary-value">Oct 14</span></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>License Consumption</h3></div><div class="chart-container"><div id="chartLicenseConsumption"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Spend by Category</h3></div><div class="chart-container"><div id="chartSpendCategory"></div></div></div>
+      </div>
+      <div class="chart-card premium"><div class="chart-card-header"><h3>Billing History</h3></div><div class="chart-container"><div id="chartBillingHistory"></div></div></div>
+    </section>
+
+    <!-- AUDIT LOGS VIEW -->
+    <section class="dash-view" id="view-audit">
+      <div class="view-header luxury"><div><h2>Audit Logs</h2><p class="view-subtitle">Administrative actions and system events</p></div><div class="header-actions"><button class="btn-ghost">Filter Logs</button></div></div>
+      <div class="audit-filter-bar">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="user">User</button>
+        <button class="filter-chip" data-filter="security">Security</button>
+        <button class="filter-chip" data-filter="system">System</button>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Events by Category</h3></div><div class="chart-container"><div id="chartEventsCategory"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Events Over Time</h3></div><div class="chart-container"><div id="chartEventsTime"></div></div></div>
+      </div>
+      <div class="chart-card premium"><div class="chart-card-header"><h3>Log Entries</h3></div><div class="audit-log-list" id="auditLogList"></div></div>
+    </section>
+
+    <!-- PROFILE VIEW -->
+    <section class="dash-view" id="view-profile">
+      <div class="view-header luxury"><div><h2>Profile / Settings</h2><p class="view-subtitle">Administrator account and platform preferences</p></div></div>
+      <div class="profile-grid">
+        <div class="profile-card profile-info-card">
+          <h3>Administrator Information</h3>
+          <div class="profile-avatar-section"><span class="avatar-initial avatar-xl" id="profileAvatar">A</span><div><div class="profile-user-name" id="profileName">Administrator</div><span class="role-badge admin" id="profileRoleBadge">Administrator</span></div></div>
+          <form class="profile-form" id="profileForm">
+            <label class="field"><span class="field-label">Full Name</span><input type="text" id="profileFullName" class="field-input" value=""></label>
+            <label class="field"><span class="field-label">Email</span><input type="email" id="profileEmail" class="field-input" value=""></label>
+            <label class="field"><span class="field-label">Role</span><input type="text" id="profileRoleInput" class="field-input" value="" disabled></label>
+            <button type="submit" class="btn-save">Save Changes</button>
+          </form>
+        </div>
+        <div class="profile-card"><h3>Activity Calendar</h3><div class="activity-heatmap" id="activityHeatmap"></div></div>
+        <div class="profile-card"><h3>Preferences</h3><div class="toggle-group">
+          <div class="toggle-row"><span>Dark Theme</span><label class="toggle-switch"><input type="checkbox" id="toggleTheme" checked><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span>Email Alerts</span><label class="toggle-switch"><input type="checkbox" id="toggleEmail" checked><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span>Security Notifications</span><label class="toggle-switch"><input type="checkbox" id="toggleSecurity" checked><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span>Audit Digest</span><label class="toggle-switch"><input type="checkbox" id="toggleAudit"><span class="toggle-slider"></span></label></div>
+        </div></div>
+        <div class="profile-card"><h3>Security</h3><div class="security-list">
+          <div class="security-item"><span>Two-Factor Auth</span><button class="btn-ghost small">Enable</button></div>
+          <div class="security-item"><span>Active Sessions</span><span class="security-value">2 devices</span></div>
+          <div class="security-item"><span>Last Login</span><span class="security-value" id="lastLoginTime">Today, 08:42</span></div>
+        </div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.44.0/dist/apexcharts.min.js"></script>
+  <script src="assets/js/admin-dashboard.js"></script>
+</body>
+</html>

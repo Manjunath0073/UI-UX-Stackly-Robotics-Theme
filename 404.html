@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AETERNUS ROBOTICS // 404 — SYSTEM CALIBRATION ERROR</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg-2: #0b0f17;
+    --accent: #00e5e5;
+    --accent-bright: #4df5f5;
+    --accent-dim: rgba(0, 229, 229, 0.12);
+    --text: #e8edf5;
+    --muted: #8a93a6;
+    --fault: #ff3b30;
+    --border: #1c2430;
+    --mono: ui-monospace, 'Cascadia Mono', 'JetBrains Mono', 'IBM Plex Mono', 'Share Tech Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    font-family: var(--sans);
+    color: var(--text);
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -8%, rgba(0, 229, 229, 0.09), transparent 70%),
+      radial-gradient(ellipse 45% 40% at 85% 110%, rgba(0, 229, 229, 0.05), transparent 70%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0, 229, 229, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 229, 0.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fault-panel {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    background: linear-gradient(180deg, rgba(0, 229, 229, 0.035), rgba(255, 255, 255, 0.01));
+    box-shadow:
+      inset 0 0 48px rgba(0, 229, 229, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 24px 60px rgba(0, 0, 0, 0.55);
+  }
+
+  .panel-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .panel-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fault);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--fault);
+    box-shadow: 0 0 10px var(--fault), 0 0 20px rgba(255, 59, 48, 0.5);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  .panel-coord {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: rgba(138, 147, 166, 0.55);
+  }
+
+  .hologram {
+    position: relative;
+    height: clamp(220px, 34vw, 320px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background:
+      linear-gradient(rgba(0, 229, 229, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 229, 0.05) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .hologram::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 229, 229, 0.045) 0 1px,
+      transparent 1px 3px
+    );
+  }
+
+  .hologram::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0, 229, 229, 0.14), transparent 70%);
+  }
+
+  .hologram-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hologram-sweep {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -25%;
+    height: 72px;
+    background: linear-gradient(180deg, transparent, rgba(0, 229, 229, 0.12), transparent);
+    pointer-events: none;
+    animation: sweep 4.5s linear infinite;
+  }
+
+  .panel-corner {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(138, 147, 166, 0.6);
+  }
+
+  .rescan-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -12%;
+    height: 34px;
+    background: linear-gradient(180deg, transparent, rgba(0, 229, 229, 0.5), transparent);
+    box-shadow: 0 0 18px rgba(0, 229, 229, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .rescan-flash {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: clamp(14px, 3vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(10, 14, 20, 0.55);
+    text-shadow: 0 0 18px rgba(0, 229, 229, 0.9);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .fault-panel.rescanning .rescan-line {
+    opacity: 1;
+    animation: fastSweep 1.4s ease-in-out;
+  }
+
+  .fault-panel.rescanning .rescan-flash {
+    opacity: 1;
+    animation: flashFade 1.4s ease-in-out;
+  }
+
+  .big-404 {
+    margin-top: clamp(40px, 6vw, 64px);
+    font-family: var(--mono);
+    font-size: clamp(104px, 24vw, 220px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    text-shadow:
+      0 0 16px rgba(0, 229, 229, 0.9),
+      0 0 60px rgba(0, 229, 229, 0.45),
+      0 0 130px rgba(0, 229, 229, 0.25);
+    animation: neonPulse 3s ease-in-out infinite;
+  }
+
+  .heading {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: clamp(15px, 3vw, 22px);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text);
+  }
+
+  .subtext {
+    margin-top: 18px;
+    text-align: center;
+    font-size: clamp(13px, 2.4vw, 15px);
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 560px;
+  }
+
+  .status-row {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .status-cell {
+    flex: 1;
+    min-width: 0;
+    padding: 18px 22px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .status-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .status-value {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: clamp(14px, 2.6vw, 18px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(0, 229, 229, 0.35);
+  }
+
+  .status-value.err {
+    color: var(--fault);
+    text-shadow: 0 0 12px rgba(255, 59, 48, 0.35);
+  }
+
+  .actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 36px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn svg {
+    flex-shrink: 0;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0e14;
+    box-shadow: 0 0 24px rgba(0, 229, 229, 0.35);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-bright);
+    box-shadow: 0 0 40px rgba(0, 229, 229, 0.6);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(0, 229, 229, 0.5);
+    box-shadow: 0 0 12px rgba(0, 229, 229, 0.12);
+  }
+
+  .btn-outline:hover {
+    background: var(--accent-dim);
+    box-shadow: 0 0 22px rgba(0, 229, 229, 0.3);
+  }
+
+  .btn:disabled {
+    opacity: 0.75;
+    cursor: progress;
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: clamp(48px, 8vw, 80px);
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-left {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .footer-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent), 0 0 16px rgba(0, 229, 229, 0.5);
+    animation: dotPulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.82); }
+  }
+
+  @keyframes neonPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.72; }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 0.92; }
+    3% { opacity: 0.6; }
+    6% { opacity: 0.95; }
+    7% { opacity: 0.55; }
+    8% { opacity: 0.92; }
+    46% { opacity: 0.9; }
+    48% { opacity: 0.65; }
+    50% { opacity: 0.92; }
+  }
+
+  @keyframes sweep {
+    from { top: -25%; }
+    to { top: 110%; }
+  }
+
+  @keyframes fastSweep {
+    0% { top: -12%; opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { top: 108%; opacity: 0; }
+  }
+
+  @keyframes flashFade {
+    0%, 100% { opacity: 0; }
+    12% { opacity: 1; }
+    60% { opacity: 0.9; }
+  }
+
+  @media (max-width: 560px) {
+    body {
+      padding: 32px 16px;
+    }
+
+    .fault-panel {
+      padding: 12px;
+    }
+
+    .panel-coord {
+      display: none;
+    }
+
+    .status-row {
+      flex-direction: column;
+    }
+
+    .actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .footer {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 360px) {
+    body {
+      padding: 24px 12px;
+    }
+
+    .fault-panel {
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .hologram {
+      height: clamp(180px, 34vw, 220px);
+    }
+
+    .big-404 {
+      margin-top: 32px;
+      font-size: clamp(80px, 22vw, 104px);
+    }
+
+    .heading {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+    }
+
+    .subtext {
+      font-size: 13px;
+    }
+
+    .status-cell {
+      padding: 14px 16px;
+    }
+
+    .status-value {
+      font-size: 13px;
+    }
+
+    .btn {
+      padding: 14px 20px;
+      font-size: 12px;
+    }
+
+    .footer {
+      margin-top: 40px;
+    }
+
+    .footer-left,
+    .footer-right {
+      font-size: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <section class="fault-panel" id="faultPanel" aria-label="System fault diagnostic panel">
+      <div class="panel-top">
+        <span class="panel-status"><span class="dot" aria-hidden="true"></span>System Fault Detected</span>
+        <span class="panel-coord">SECTOR 04 // GRID 7F</span>
+      </div>
+
+      <div class="hologram">
+        <img src="assets/images/404/574d6e317638aa5dcc824fbe1cef214329e5898d.jpg" alt="404 NOT FOUND" class="hologram-img">
+        <div class="hologram-sweep" aria-hidden="true"></div>
+      </div>
+
+      <span class="panel-corner">OBJ_ID: NULL_REF</span>
+
+      <span class="rescan-line" aria-hidden="true"></span>
+      <span class="rescan-flash" id="rescanFlash" aria-hidden="true">Rescanning...</span>
+    </section>
+
+    <h1 class="big-404" aria-hidden="true">404</h1>
+    <h2 class="heading">System Calibration Error</h2>
+    <p class="subtext">
+      The requested module is offline or has been decommissioned from the central core.<br>
+      Verify connection parameters or initiate a system rescan.
+    </p>
+
+    <div class="status-row">
+      <div class="status-cell">
+        <span class="status-label">ERR_CODE:</span>
+        <span class="status-value err">404_Not_Found</span>
+      </div>
+      <div class="status-cell">
+        <span class="status-label">CORE_STATUS:</span>
+        <span class="status-value" id="coreStatus">Offline</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="/" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5"/>
+          <path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/>
+        </svg>
+        Return to Command Center
+      </a>
+      <button type="button" class="btn btn-outline" id="rescanBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12a9 9 0 1 1-2.64-6.36"/>
+          <path d="M21 3v6h-6"/>
+        </svg>
+        Rescan System
+      </button>
+    </div>
+
+    <footer class="footer">
+      <span class="footer-left">© 2024 AETERNUS ROBOTICS</span>
+      <span class="footer-right"><span class="footer-dot" aria-hidden="true"></span>Awaiting Input</span>
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      var panel = document.getElementById('faultPanel');
+      var btn = document.getElementById('rescanBtn');
+      var flash = document.getElementById('rescanFlash');
+      var coreStatus = document.getElementById('coreStatus');
+      var scanning = false;
+
+      if (btn && panel) {
+        btn.addEventListener('click', function () {
+          if (scanning) return;
+          scanning = true;
+
+          btn.disabled = true;
+          btn.textContent = 'Rescanning...';
+          if (coreStatus) {
+            coreStatus.textContent = 'Scanning...';
+            coreStatus.style.color = '#00e5e5';
+            coreStatus.style.textShadow = '0 0 12px rgba(0, 229, 229, 0.35)';
+          }
+
+          panel.classList.add('rescanning');
+
+          setTimeout(function () {
+            panel.classList.remove('rescanning');
+            btn.disabled = false;
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg> Rescan System';
+            if (coreStatus) {
+              coreStatus.textContent = 'Offline';
+              coreStatus.style.color = '#00e5e5';
+              coreStatus.style.textShadow = '0 0 12px rgba(0, 229, 229, 0.35)';
+            }
+            scanning = false;
+          }, 1450);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

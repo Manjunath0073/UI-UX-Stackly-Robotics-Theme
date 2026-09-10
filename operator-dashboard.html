@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY — Operator Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/operator-dashboard.css">
+</head>
+<body>
+
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+    <div class="mesh-overlay"></div>
+  </div>
+
+  <header class="dash-header" id="dashHeader">
+    <div class="dash-header-left">
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
+      <a href="index.html" class="dash-logo"><img src="assets/images/home/nav-logo.png" alt="STACKLY" class="dash-logo-img"></a>
+      <div class="header-title-block">
+        <div class="header-breadcrumb" id="headerBreadcrumb">Command Center / <span>Overview</span></div>
+        <h1 class="dash-page-title" id="pageTitle">Overview</h1>
+      </div>
+    </div>
+    <div class="dash-header-center">
+      <div class="live-ticker" id="liveTicker"><span class="ticker-dot"></span><span class="ticker-text" id="tickerText">System Optimal</span></div>
+      <div class="header-clock" id="headerClock">--:--:--</div>
+    </div>
+    <div class="dash-header-right">
+      <button class="header-icon-btn" id="searchBtn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
+      <button class="header-icon-btn" id="fullscreenBtn" aria-label="Fullscreen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
+      <button class="notif-btn" id="notifBtn" aria-label="Notifications">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-badge" id="notifBadge">3</span>
+      </button>
+      <div class="user-dropdown-wrap" id="userDropdownWrap">
+        <button class="user-avatar-btn" id="userAvatarBtn">
+          <span class="avatar-initial" id="avatarInitial">O</span>
+          <span class="user-name-header" id="userDisplayName">Operator</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="dropdown-user-info">
+            <span class="avatar-initial avatar-lg" id="dropdownAvatar">O</span>
+            <div>
+              <div class="dropdown-user-name" id="dropdownName">Operator</div>
+              <div class="dropdown-user-email" id="dropdownEmail">operator@stackly.com</div>
+              <span class="role-badge" id="dropdownRole">Operator</span>
+            </div>
+          </div>
+          <hr class="dropdown-divider">
+          <button class="dropdown-item" id="navToProfile"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile &amp; Settings</button>
+          <button class="dropdown-item" id="logoutBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="sidebar-scroll">
+      <nav class="sidebar-nav" id="sidebarNav">
+        <a href="#overview" class="sidebar-link active" data-view="overview" data-title="Overview">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+          <span class="sidebar-label">Overview</span>
+        </a>
+        <a href="#live-operations" class="sidebar-link" data-view="live-operations" data-title="Live Operations">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+          <span class="sidebar-label">Live Operations</span>
+          <span class="sidebar-pulse"></span>
+        </a>
+        <a href="#equipment" class="sidebar-link" data-view="equipment" data-title="Asset / Equipment Status">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span class="sidebar-label">Equipment</span>
+        </a>
+        <a href="#alerts" class="sidebar-link" data-view="alerts" data-title="Alerts &amp; Incidents">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <span class="sidebar-label">Alerts</span>
+          <span class="sidebar-badge">7</span>
+        </a>
+        <a href="#tasks" class="sidebar-link" data-view="tasks" data-title="Task Queue">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="sidebar-label">Tasks</span>
+        </a>
+        <a href="#reports" class="sidebar-link" data-view="reports" data-title="Performance Reports">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+          <span class="sidebar-label">Reports</span>
+        </a>
+        <a href="#profile" class="sidebar-link" data-view="profile" data-title="Profile / Settings">
+          <span class="sidebar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <span class="sidebar-label">Profile</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="system-mini-card">
+          <div class="system-mini-header"><span class="system-mini-dot online"></span><span>System Health</span></div>
+          <div class="system-mini-value" id="systemHealthMini">98.7%</div>
+          <div class="system-mini-bar"><div style="width:98.7%"></div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <a href="#overview" class="mobile-nav-link active" data-view="overview"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Overview</span></a>
+    <a href="#live-operations" class="mobile-nav-link" data-view="live-operations"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Live</span></a>
+    <a href="#alerts" class="mobile-nav-link" data-view="alerts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span>Alerts</span></a>
+    <a href="#tasks" class="mobile-nav-link" data-view="tasks"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>Tasks</span></a>
+    <button class="mobile-nav-link" id="mobileMoreBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg><span>More</span></button>
+  </nav>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <main class="dash-main" id="dashMain">
+
+    <!-- OVERVIEW VIEW -->
+    <section class="dash-view active" id="view-overview">
+      <div class="view-header luxury">
+        <div><h2>Command Overview</h2><p class="view-subtitle">Live telemetry across all robotic systems and operations</p></div>
+        <div class="header-actions"><button class="btn-ghost" id="refreshOverview">Refresh</button><button class="btn-primary">Export Snapshot</button></div>
+      </div>
+      <div class="kpi-grid premium">
+        <div class="kpi-card" data-delay="0">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-primary"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><span class="kpi-spark" id="sparkTasks"></span></div>
+          <div class="kpi-body"><span class="kpi-label">Active Tasks</span><span class="kpi-value count-up" data-target="142">0</span></div>
+          <div class="kpi-bottom"><span class="kpi-trend up">+12%</span><span class="kpi-trend-label">vs last hour</span></div>
+        </div>
+        <div class="kpi-card" data-delay="1">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-danger"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="kpi-spark" id="sparkAlerts"></span></div>
+          <div class="kpi-body"><span class="kpi-label">Open Alerts</span><span class="kpi-value count-up" data-target="7">0</span></div>
+          <div class="kpi-bottom"><span class="kpi-trend down">-3</span><span class="kpi-trend-label">critical resolved</span></div>
+        </div>
+        <div class="kpi-card" data-delay="2">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-success"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="kpi-spark" id="sparkUptime"></span></div>
+          <div class="kpi-body"><span class="kpi-label">System Uptime</span><span class="kpi-value"><span class="count-up" data-target="99" data-suffix=".7%">0</span></span></div>
+          <div class="kpi-bottom"><span class="kpi-trend up">Stable</span><span class="kpi-trend-label">last 30 days</span></div>
+        </div>
+        <div class="kpi-card" data-delay="3">
+          <div class="kpi-top"><div class="kpi-icon kpi-icon-cyan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span class="kpi-spark" id="sparkCompleted"></span></div>
+          <div class="kpi-body"><span class="kpi-label">Completed Today</span><span class="kpi-value count-up" data-target="487">0</span></div>
+          <div class="kpi-bottom"><span class="kpi-trend up">+8%</span><span class="kpi-trend-label">above target</span></div>
+        </div>
+      </div>
+
+      <div class="overview-metrics-row">
+        <div class="metric-panel">
+          <div class="metric-panel-header"><span class="metric-panel-title">Production Line</span><span class="metric-panel-status online">Running</span></div>
+          <div class="production-line" id="productionLine"></div>
+        </div>
+        <div class="metric-panel">
+          <div class="metric-panel-header"><span class="metric-panel-title">Active Operators</span><span class="metric-panel-count">12 on shift</span></div>
+          <div class="operators-list" id="operatorsList"></div>
+        </div>
+        <div class="metric-panel">
+          <div class="metric-panel-header"><span class="metric-panel-title">Environment</span><span class="metric-panel-status normal">Normal</span></div>
+          <div class="env-grid" id="envGrid"></div>
+        </div>
+      </div>
+
+      <div class="chart-row chart-row-2">
+        <div class="chart-card chart-card-wide premium">
+          <div class="chart-card-header"><div><h3>Live Activity Trend</h3><p class="chart-subtitle">Real-time throughput and task velocity</p></div><span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
+          <div class="chart-container"><div id="chartActivityTrend"></div></div>
+        </div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Task Status Distribution</h3></div><div class="chart-container"><div id="chartTaskStatus"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-3">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Shift Performance</h3></div><div class="chart-container"><div id="chartShiftPerf"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>OEE Trend</h3></div><div class="chart-container"><div id="chartOEE"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Recent Alerts</h3></div><div class="alerts-feed" id="alertsFeed"></div></div>
+      </div>
+    </section>
+
+    <!-- LIVE OPERATIONS VIEW -->
+    <section class="dash-view" id="view-live-operations">
+      <div class="view-header luxury">
+        <div><h2>Live Operations</h2><p class="view-subtitle">Real-time command center monitoring</p></div>
+        <div class="header-actions"><span class="latency-badge">Latency: <span id="latencyValue">12</span>ms</span></div>
+      </div>
+      <div class="throughput-hero">
+        <div class="throughput-hero-main"><span class="throughput-label">Live Throughput</span><span class="throughput-value" id="throughputValue">1,247</span><span class="throughput-unit">units / minute</span></div>
+        <div class="throughput-hero-stats">
+          <div><span class="thr-stat-label">Peak Today</span><span class="thr-stat-value">1,892</span></div>
+          <div><span class="thr-stat-label">Average</span><span class="thr-stat-value">1,156</span></div>
+          <div><span class="thr-stat-label">Target</span><span class="thr-stat-value">1,400</span></div>
+        </div>
+      </div>
+      <div class="gauges-grid">
+        <div class="gauge-card premium"><div class="radial-gauge" data-value="87" data-color="#6366F1"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/><circle cx="60" cy="60" r="52" fill="none" stroke="#6366F1" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="42.47" transform="rotate(-90 60 60)" class="gauge-arc"/></svg><div class="gauge-label"><span class="gauge-value">87%</span><span class="gauge-title">CPU Load</span></div></div></div>
+        <div class="gauge-card premium"><div class="radial-gauge" data-value="64" data-color="#06B6D4"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/><circle cx="60" cy="60" r="52" fill="none" stroke="#06B6D4" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="117.62" transform="rotate(-90 60 60)" class="gauge-arc"/></svg><div class="gauge-label"><span class="gauge-value">64%</span><span class="gauge-title">Memory</span></div></div></div>
+        <div class="gauge-card premium"><div class="radial-gauge" data-value="72" data-color="#10B981"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/><circle cx="60" cy="60" r="52" fill="none" stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="91.48" transform="rotate(-90 60 60)" class="gauge-arc"/></svg><div class="gauge-label"><span class="gauge-value">72%</span><span class="gauge-title">Network</span></div></div></div>
+        <div class="gauge-card premium"><div class="radial-gauge" data-value="91" data-color="#F59E0B"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/><circle cx="60" cy="60" r="52" fill="none" stroke="#F59E0B" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="29.41" transform="rotate(-90 60 60)" class="gauge-arc"/></svg><div class="gauge-label"><span class="gauge-value">91%</span><span class="gauge-title">Storage</span></div></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card chart-card-wide premium"><div class="chart-card-header"><div><h3>Real-Time Activity Timeline</h3><p class="chart-subtitle">Updates every 3 seconds</p></div><span class="live-badge"><span class="live-dot"></span>LIVE</span></div><div class="chart-container"><div id="chartActivityTimeline"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Station Status Grid</h3></div><div class="heatmap-grid" id="heatmapGrid"></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>CPU / Memory Correlation</h3></div><div class="chart-container"><div id="chartCpuMemScatter"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Robot Utilization</h3></div><div class="chart-container"><div id="chartRobotUtil"></div></div></div>
+      </div>
+      <div class="live-events-panel">
+        <div class="live-events-header"><h3>Live Event Stream</h3><span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
+        <div class="live-events-list" id="liveEventsList"></div>
+      </div>
+    </section>
+
+    <!-- EQUIPMENT VIEW -->
+    <section class="dash-view" id="view-equipment">
+      <div class="view-header luxury"><div><h2>Asset / Equipment Status</h2><p class="view-subtitle">Equipment health, availability, and maintenance</p></div><div class="header-actions"><button class="btn-ghost">Schedule Maintenance</button></div></div>
+      <div class="equip-summary-row">
+        <div class="equip-summary-card"><span class="equip-summary-value" id="equipOnline">18</span><span class="equip-summary-label">Online</span></div>
+        <div class="equip-summary-card"><span class="equip-summary-value" id="equipMaint">4</span><span class="equip-summary-label">Maintenance</span></div>
+        <div class="equip-summary-card"><span class="equip-summary-value" id="equipOffline">2</span><span class="equip-summary-label">Offline</span></div>
+        <div class="equip-summary-card"><span class="equip-summary-value" id="equipTotal">24</span><span class="equip-summary-label">Total Assets</span></div>
+      </div>
+      <div class="equipment-grid" id="equipmentGrid"></div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Availability Overview</h3></div><div class="chart-container"><div id="chartAvailability"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Downtime Trend</h3></div><div class="chart-container"><div id="chartDowntime"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>MTBF / MTTR</h3></div><div class="chart-container"><div id="chartMtbf"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Equipment Age Distribution</h3></div><div class="chart-container"><div id="chartEquipAge"></div></div></div>
+      </div>
+      <div class="chart-card premium"><div class="chart-card-header"><h3>Maintenance Schedule</h3></div><div class="maintenance-calendar" id="maintenanceCalendar"></div></div>
+    </section>
+
+    <!-- ALERTS VIEW -->
+    <section class="dash-view" id="view-alerts">
+      <div class="view-header luxury"><div><h2>Alerts &amp; Incidents</h2><p class="view-subtitle">Severity breakdown and incident management</p></div><div class="header-actions"><button class="btn-primary">Create Incident</button></div></div>
+      <div class="alert-summary-cards">
+        <div class="alert-summary-card critical"><span class="alert-summary-value" id="alertCriticalCount">7</span><span class="alert-summary-label">Critical</span></div>
+        <div class="alert-summary-card warning"><span class="alert-summary-value" id="alertWarningCount">12</span><span class="alert-summary-label">Warning</span></div>
+        <div class="alert-summary-card info"><span class="alert-summary-value" id="alertInfoCount">18</span><span class="alert-summary-label">Info</span></div>
+        <div class="alert-summary-card total"><span class="alert-summary-value" id="alertTotalCount">37</span><span class="alert-summary-label">Total</span></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Severity Breakdown</h3></div><div class="chart-container"><div id="chartSeverity"></div></div></div>
+        <div class="chart-card chart-card-wide premium"><div class="chart-card-header"><h3>Alert Volume Trend</h3></div><div class="chart-container"><div id="chartAlertVolume"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Alerts by Asset</h3></div><div class="chart-container"><div id="chartAlertsByAsset"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Resolution Time</h3></div><div class="chart-container"><div id="chartResolution"></div></div></div>
+      </div>
+      <div class="alerts-filter-bar">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="critical">Critical</button>
+        <button class="filter-chip" data-filter="warning">Warning</button>
+        <button class="filter-chip" data-filter="info">Info</button>
+      </div>
+      <div class="alerts-list" id="alertsList"></div>
+    </section>
+
+    <!-- TASKS VIEW -->
+    <section class="dash-view" id="view-tasks">
+      <div class="view-header luxury"><div><h2>Task Queue</h2><p class="view-subtitle">Priority distribution and Kanban workflow</p></div><div class="header-actions"><button class="btn-primary">+ New Task</button></div></div>
+      <div class="task-summary-row">
+        <div class="task-summary-card"><span class="task-summary-value" id="taskTotalCount">42</span><span class="task-summary-label">Total Tasks</span></div>
+        <div class="task-summary-card"><span class="task-summary-value" id="taskOverdueCount">3</span><span class="task-summary-label">Overdue</span></div>
+        <div class="task-summary-card"><span class="task-summary-value" id="taskDueCount">8</span><span class="task-summary-label">Due Today</span></div>
+        <div class="task-summary-card"><span class="task-summary-value" id="taskDoneCount">18</span><span class="task-summary-label">Done</span></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Priority Distribution</h3></div><div class="chart-container"><div id="chartPriority"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Task Completion Rate</h3></div><div class="chart-container"><div id="chartCompletion"></div></div></div>
+      </div>
+      <div class="kanban-board" id="kanbanBoard">
+        <div class="kanban-column" data-status="todo"><div class="kanban-col-header"><span class="kanban-col-dot kanban-dot-todo"></span><h4>To Do</h4><span class="kanban-count" id="kanbanTodoCount">0</span></div><div class="kanban-cards" id="kanbanTodo"></div></div>
+        <div class="kanban-column" data-status="progress"><div class="kanban-col-header"><span class="kanban-col-dot kanban-dot-progress"></span><h4>In Progress</h4><span class="kanban-count" id="kanbanProgressCount">0</span></div><div class="kanban-cards" id="kanbanProgress"></div></div>
+        <div class="kanban-column" data-status="done"><div class="kanban-col-header"><span class="kanban-col-dot kanban-dot-done"></span><h4>Done</h4><span class="kanban-count" id="kanbanDoneCount">0</span></div><div class="kanban-cards" id="kanbanDone"></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Task Lifecycle Funnel</h3></div><div class="chart-container"><div id="chartFunnel"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Tasks by Assignee</h3></div><div class="chart-container"><div id="chartTasksByAssignee"></div></div></div>
+      </div>
+    </section>
+
+    <!-- REPORTS VIEW -->
+    <section class="dash-view" id="view-reports">
+      <div class="view-header luxury"><div><h2>Performance Reports</h2><p class="view-subtitle">Analytics, trends, and exportable data</p></div><div class="header-actions"><button class="btn-primary" id="exportCsvBtn">Export CSV</button></div></div>
+      <div class="reports-toolbar">
+        <div class="date-filter"><label>Date Range:</label><input type="date" value="2026-09-01" class="date-input"><span>to</span><input type="date" value="2026-09-09" class="date-input"></div>
+        <div class="report-kpis">
+          <span class="report-kpi"><strong>OEE</strong> 87.4%</span>
+          <span class="report-kpi"><strong>Quality</strong> 98.2%</span>
+          <span class="report-kpi"><strong>Availability</strong> 94.1%</span>
+          <span class="report-kpi"><strong>Performance</strong> 92.7%</span>
+        </div>
+      </div>
+      <div class="chart-card premium"><div class="chart-card-header"><h3>Multi-Metric Performance</h3></div><div class="chart-container chart-container-tall"><div id="chartMultiMetric"></div></div></div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Operator vs Target</h3></div><div class="chart-container"><div id="chartOperatorTarget"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Efficiency Summary</h3></div><div class="chart-container"><div id="chartEfficiency"></div></div></div>
+      </div>
+      <div class="chart-row chart-row-2">
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Defect Rate Pareto</h3></div><div class="chart-container"><div id="chartDefectPareto"></div></div></div>
+        <div class="chart-card premium"><div class="chart-card-header"><h3>Cost per Unit Trend</h3></div><div class="chart-container"><div id="chartCostPerUnit"></div></div></div>
+      </div>
+    </section>
+
+    <!-- PROFILE VIEW -->
+    <section class="dash-view" id="view-profile">
+      <div class="view-header luxury"><div><h2>Profile / Settings</h2><p class="view-subtitle">Account management and preferences</p></div></div>
+      <div class="profile-grid">
+        <div class="profile-card profile-info-card">
+          <h3>User Information</h3>
+          <div class="profile-avatar-section"><span class="avatar-initial avatar-xl" id="profileAvatar">O</span><div><div class="profile-user-name" id="profileName">Operator</div><span class="role-badge" id="profileRoleBadge">Operator</span></div></div>
+          <form class="profile-form" id="profileForm">
+            <label class="field"><span class="field-label">Full Name</span><input type="text" id="profileFullName" class="field-input" value=""></label>
+            <label class="field"><span class="field-label">Email</span><input type="email" id="profileEmail" class="field-input" value=""></label>
+            <label class="field"><span class="field-label">Role</span><input type="text" id="profileRoleInput" class="field-input" value="" disabled></label>
+            <button type="submit" class="btn-save">Save Changes</button>
+          </form>
+        </div>
+        <div class="profile-card"><h3>Activity Calendar</h3><div class="activity-heatmap" id="activityHeatmap"></div></div>
+        <div class="profile-card"><h3>Preferences</h3><div class="toggle-group">
+          <div class="toggle-row"><span>Dark Theme</span><label class="toggle-switch"><input type="checkbox" id="toggleTheme" checked><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span>Email Notifications</span><label class="toggle-switch"><input type="checkbox" id="toggleEmail" checked><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span>Desktop Alerts</span><label class="toggle-switch"><input type="checkbox" id="toggleDesktop"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span>Sound Effects</span><label class="toggle-switch"><input type="checkbox" id="toggleSound"><span class="toggle-slider"></span></label></div>
+        </div></div>
+        <div class="profile-card"><h3>Security</h3><div class="security-list">
+          <div class="security-item"><span>Two-Factor Auth</span><button class="btn-ghost small">Enable</button></div>
+          <div class="security-item"><span>Active Sessions</span><span class="security-value">2 devices</span></div>
+          <div class="security-item"><span>Last Login</span><span class="security-value" id="lastLoginTime">Today, 08:42</span></div>
+        </div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.44.0/dist/apexcharts.min.js"></script>
+  <script src="assets/js/operator-dashboard.js"></script>
+</body>
+</html>
