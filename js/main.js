@@ -124,4 +124,23 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   }
+
+  // Scroll reveal animation
+  if ('IntersectionObserver' in window) {
+    var revealContainers = document.querySelectorAll('section > .container');
+
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+
+    revealContainers.forEach(function (el) {
+      el.classList.add('js-reveal');
+      revealObserver.observe(el);
+    });
+  }
 });

@@ -39,6 +39,14 @@
     window.location.href = 'login.html';
   });
 
+  var sidebarLogout = document.getElementById('sidebarLogoutBtn');
+  if (sidebarLogout) {
+    sidebarLogout.addEventListener('click', function () {
+      localStorage.removeItem(USER_KEY);
+      window.location.href = 'login.html';
+    });
+  }
+
   document.getElementById('profileForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var newName = document.getElementById('profileFullName').value.trim();

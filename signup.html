@@ -464,6 +464,32 @@
     color: var(--slate);
   }
 
+  .form-error {
+    display: none;
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: rgba(255, 59, 48, 0.12);
+    border: 1px solid rgba(255, 59, 48, 0.5);
+    color: #ff7b72;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .form-error.show {
+    display: block;
+  }
+
+  .field.has-error .input-wrap input {
+    border-color: #ff3b30;
+    box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.12);
+  }
+
+  .consent.has-error input {
+    border-color: #ff3b30;
+  }
+
   .btn-create {
     width: 100%;
     padding: 15px 20px;
@@ -756,6 +782,8 @@
             <span>I acknowledge the System Protocols and Security Directives.</span>
           </label>
 
+          <p class="form-error" id="signupError" role="alert"></p>
+
           <button type="submit" class="btn-create" id="createBtn">Create Account &#8594;</button>
         </form>
 
@@ -801,28 +829,88 @@
       }
 
       if (form) {
+        var error = document.getElementById('signupError');
+
+        function showError(msg) {
+          error.textContent = msg;
+          error.classList.add('show');
+          clearTimeout(showError._t);
+          showError._t = setTimeout(function () {
+            error.classList.remove('show');
+          }, 3000);
+        }
+
+        function clearErrors() {
+          form.querySelectorAll('.field, .consent').forEach(function (el) {
+            el.classList.remove('has-error');
+          });
+        }
+
+        var fullNameInput = document.getElementById('fullName');
+        var emailInput = document.getElementById('email');
+        var passInput = document.getElementById('password');
+
         form.addEventListener('submit', function (e) {
           e.preventDefault();
-          if (consent && !consent.checked) {
-            consent.style.borderColor = '#ff3b30';
+          var fullNameVal = fullNameInput.value.trim();
+          var emailVal = emailInput.value.trim();
+          var passVal = passInput.value;
+
+          clearErrors();
+
+          if (!fullNameVal) {
+            showError('Full name is required.');
+            fullNameInput.closest('.field').classList.add('has-error');
+            fullNameInput.focus();
             return;
           }
-          if (consent) {
-            consent.style.borderColor = '';
+          if (!/^[A-Za-z\s]+$/.test(fullNameVal)) {
+            showError('Full name must contain only alphabets.');
+            fullNameInput.closest('.field').classList.add('has-error');
+            fullNameInput.focus();
+            return;
           }
+          if (!emailVal) {
+            showError('Business email is required.');
+            emailInput.closest('.field').classList.add('has-error');
+            emailInput.focus();
+            return;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+            showError('Please enter a valid email address.');
+            emailInput.closest('.field').classList.add('has-error');
+            emailInput.focus();
+            return;
+          }
+          if (!passVal) {
+            showError('Security key is required.');
+            passInput.closest('.field').classList.add('has-error');
+            passInput.focus();
+            return;
+          }
+          if (passVal.length < 8) {
+            showError('Security key must be at least 8 characters.');
+            passInput.closest('.field').classList.add('has-error');
+            passInput.focus();
+            return;
+          }
+          if (consent && !consent.checked) {
+            showError('Please acknowledge the System Protocols and Security Directives.');
+            consent.classList.add('has-error');
+            return;
+          }
+
           var original = createBtn.innerHTML;
           createBtn.disabled = true;
           createBtn.textContent = 'Registering...';
 
-          var fullNameVal = document.getElementById('fullName').value.trim();
-          var emailVal = document.getElementById('email').value.trim();
           var activeRole = roleRow.querySelector('.role.active');
           var roleVal = activeRole ? activeRole.getAttribute('data-role') : 'operator';
           var mappedRole = roleVal === 'admin' ? 'Administrator' : 'Operator';
 
           var user = {
-            fullName: fullNameVal || 'Operator',
-            email: emailVal || 'operator@stackly.com',
+            fullName: fullNameVal,
+            email: emailVal,
             role: mappedRole
           };
 
@@ -838,6 +926,17 @@
             }
           }, 1400);
         });
+
+        [fullNameInput, emailInput, passInput].forEach(function (field) {
+          field.addEventListener('input', function () {
+            if (field.closest('.field')) field.closest('.field').classList.remove('has-error');
+          });
+        });
+        if (consent) {
+          consent.addEventListener('change', function () {
+            consent.classList.remove('has-error');
+          });
+        }
       }
     })();
   </script>

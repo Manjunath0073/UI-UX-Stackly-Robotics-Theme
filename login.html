@@ -499,6 +499,28 @@
     color: var(--cyan);
   }
 
+  .form-error {
+    display: none;
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: rgba(255, 59, 48, 0.12);
+    border: 1px solid rgba(255, 59, 48, 0.5);
+    color: #ff7b72;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .form-error.show {
+    display: block;
+  }
+
+  .field.has-error .input-wrap input {
+    border-color: #ff3b30;
+    box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.12);
+  }
+
   @keyframes dotPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.45; transform: scale(0.8); }
@@ -710,6 +732,8 @@
             </div>
           </div>
 
+          <p class="form-error" id="loginError" role="alert"></p>
+
           <button type="submit" class="btn-login" id="loginBtn">Initialize Login &#8629;</button>
         </form>
 
@@ -775,20 +799,69 @@
       }
 
       if (form) {
+        var error = document.getElementById('loginError');
+
+        function showError(msg) {
+          error.textContent = msg;
+          error.classList.add('show');
+          clearTimeout(showError._t);
+          showError._t = setTimeout(function () {
+            error.classList.remove('show');
+          }, 3000);
+        }
+
+        function clearErrors() {
+          form.querySelectorAll('.field').forEach(function (el) {
+            el.classList.remove('has-error');
+          });
+        }
+
+        var emailInput = document.getElementById('email');
+        var passInput = document.getElementById('password');
+
         form.addEventListener('submit', function (e) {
           e.preventDefault();
+          var emailVal = emailInput.value.trim();
+          var passVal = passInput.value;
+
+          clearErrors();
+
+          if (!emailVal) {
+            showError('Operator ID / Email is required.');
+            emailInput.closest('.field').classList.add('has-error');
+            emailInput.focus();
+            return;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+            showError('Please enter a valid email address.');
+            emailInput.closest('.field').classList.add('has-error');
+            emailInput.focus();
+            return;
+          }
+          if (!passVal) {
+            showError('Security key is required.');
+            passInput.closest('.field').classList.add('has-error');
+            passInput.focus();
+            return;
+          }
+          if (passVal.length < 8) {
+            showError('Security key must be at least 8 characters.');
+            passInput.closest('.field').classList.add('has-error');
+            passInput.focus();
+            return;
+          }
+
           var original = loginBtn.innerHTML;
           loginBtn.disabled = true;
           loginBtn.textContent = 'Authenticating...';
 
-          var emailVal = document.getElementById('email').value.trim();
           var activeRole = roleRow.querySelector('.role.active');
           var roleVal = activeRole ? activeRole.getAttribute('data-role') : 'operator';
           var mappedRole = roleVal === 'admin' ? 'Administrator' : 'Operator';
 
           var user = {
             fullName: emailVal ? emailVal.split('@')[0].replace(/[^a-zA-Z ]/g, '') : 'Operator',
-            email: emailVal || 'operator@stackly.com',
+            email: emailVal,
             role: mappedRole
           };
 
@@ -803,6 +876,12 @@
               window.location.href = 'operator-dashboard.html';
             }
           }, 1400);
+        });
+
+        [emailInput, passInput].forEach(function (field) {
+          field.addEventListener('input', function () {
+            if (field.closest('.field')) field.closest('.field').classList.remove('has-error');
+          });
         });
       }
     })();

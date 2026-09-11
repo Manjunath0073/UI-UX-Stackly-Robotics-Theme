@@ -39,6 +39,14 @@
     window.location.href = 'login.html';
   });
 
+  var sidebarLogout = document.getElementById('sidebarLogoutBtn');
+  if (sidebarLogout) {
+    sidebarLogout.addEventListener('click', function () {
+      localStorage.removeItem(USER_KEY);
+      window.location.href = 'login.html';
+    });
+  }
+
   document.getElementById('profileForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var newName = document.getElementById('profileFullName').value.trim();
@@ -334,10 +342,6 @@
   // === DEPLOYMENTS ===
   function initDeployments() {
     chartsInit.deployments = true;
-    createChart(document.querySelector('#chartDeploymentMap'), { chart:{type:'bubble',height:360}, series:[{name:'Sites',data:[[-83,42,24],[13,52,18],[114,22,22],[-46,-23,12],[-79,43,8]]}], colors:['#0EA5E9'], dataLabels:{enabled:false}, xaxis:{tickAmount:1,labels:{show:false}}, yaxis:{tickAmount:1,labels:{show:false}} });
-    createChart(document.querySelector('#chartRobotsByRegion'), { chart:{type:'donut',height:280}, series:[24,18,22,12,8], labels:['North America','Europe','Asia','South America','Other'], colors:['#0EA5E9','#06B6D4','#F59E0B','#10B981','#64748B'], plotOptions:{pie:{donut:{size:'65%'}}}, legend:{position:'bottom',fontSize:'12px'} });
-    createChart(document.querySelector('#chartSiteUtilization'), { chart:{type:'bar',height:280}, series:[{name:'Utilization %',data:[92,88,95,78,85]}], colors:['#F59E0B'], plotOptions:{bar:{borderRadius:8,columnWidth:'55%'}}, xaxis:{categories:['Detroit','Berlin','Shenzhen','São Paulo','Toronto']} });
-    createChart(document.querySelector('#chartDeploymentTimeline'), { chart:{type:'line',height:280}, series:[{name:'Sites',data:[6,7,8,9,10,11,12,12]}], stroke:{width:3,curve:'straight'}, fill:{type:'gradient',gradient:{opacityFrom:0.35,opacityTo:0.05}}, colors:['#10B981'], xaxis:{categories:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug']} });
   }
 
   // === FLEET ===
